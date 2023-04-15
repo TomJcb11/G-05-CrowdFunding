@@ -1,13 +1,17 @@
 const express = require('express');
 const app = express();
+const route = require('./routes/routes');
 const port = 8080;
+const cors = require('cors');
 
-app.use(express.static("../frontend/dist/frontend"));
+app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.sendFile("../frontend/dist/frontend/src/index.html");
-});
+app.use(cors({origin: 'http://localhost:4200', credentials: true}));
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
-});
+app.use('/', route);
+
+app.listen(port, () => 
+    {console.log(`Example app listening at http://localhost:${port}`)}
+);
+
+module.exports = app;

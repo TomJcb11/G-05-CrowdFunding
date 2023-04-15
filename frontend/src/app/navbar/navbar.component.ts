@@ -21,6 +21,5 @@ export class NavbarComponent {
         dropdown.className = 'shown-dropdown';
       }
     });
-    
   }
 }
