@@ -1,17 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-const get = require('../controler/controler_get');
-const post = require('../controler/controler_post');
+const get = require('../controllers/controllers_get');
+const post = require('../controllers/controllers_post');
+const put = require('../controllers/controler_put');
+const del = require('../controllers/controler_delete');
 
 router.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-//route pour récupérer les données de la collection "test"
-router.get('/collection', get.getTestCollectionData);
 
 
 
-// il faut que il soit tout en bas
+// exportation des routes
 module.exports = router;
