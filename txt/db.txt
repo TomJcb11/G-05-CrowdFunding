@@ -1,0 +1,59 @@
+CREATE TABLE statuts (
+  id_statut SERIAL PRIMARY KEY,
+  nom_statut TEXT UNIQUE NOT NULL
+);
+
+CREATE TABLE paiements (
+  id_paiement SERIAL PRIMARY KEY,
+  nom_paiement TEXT
+);
+
+CREATE TABLE odd (
+  id_odd SERIAL PRIMARY KEY,
+  nom_odd TEXT UNIQUE
+);
+
+CREATE TABLE utilisateurs (
+  id_utilisateur SERIAL PRIMARY KEY,
+  identifiant_utilisateur TEXT NOT NULL UNIQUE,
+  mot_de_passe_utilisateur TEXT NOT NULL,
+  photo_utilisateur BYTEA,
+  nom_utilisateur TEXT,
+  prenom_utilisateur TEXT,
+  telephone_utilisateur TEXT NOT NULL UNIQUE,
+  date_de_naissance_utilisateur DATE,
+  adresse_utilisateur TEXT,
+  addresse_e_mail_utilisateur TEXT NOT NULL UNIQUE,
+  warning INT
+);
+
+CREATE TABLE projets (
+  id_projet SERIAL PRIMARY KEY,
+  nom_projet TEXT NOT NULL UNIQUE,
+  admin_projet INTEGER NOT NULL REFERENCES utilisateurs(id_utilisateur),
+  description_projet TEXT NOT NULL,
+  statut_projet INTEGER NOT NULL REFERENCES statuts(id_statut),
+  objectif_projet FLOAT NULL,
+  recolte_projet FLOAT NULL,
+  odd_projet INTEGER NOT NULL REFERENCES odd(id_odd)
+);
+
+CREATE TABLE benevoles (
+  id_projet INTEGER NOT NULL REFERENCES projets(id_projet),
+  id_utilisateur INTEGER NOT NULL REFERENCES utilisateurs(id_utilisateur),
+  PRIMARY KEY (id_projet, id_utilisateur)
+);
+
+CREATE TABLE investisseurs (
+  id_projet INTEGER NOT NULL REFERENCES projets(id_projet),
+  id_utilisateur INTEGER NOT NULL REFERENCES utilisateurs(id_utilisateur),
+  id_paiement INTEGER NOT NULL REFERENCES paiements(id_paiement),
+  PRIMARY KEY (id_projet, id_utilisateur)
+);
+
+CREATE TABLE chat (
+  projet_id INTEGER NOT NULL REFERENCES projets(id_projet),
+  id_utilisateurs INTEGER NOT NULL REFERENCES utilisateurs(id_utilisateurs),
+  chat_id SERIAL PRIMARY KEY,
+  chat_message TEXT NOT NULL
+);
