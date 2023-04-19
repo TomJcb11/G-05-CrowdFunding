@@ -57,3 +57,4 @@ CREATE TABLE chat (
   chat_id SERIAL PRIMARY KEY,
   chat_message TEXT NOT NULL
 );
+                      
