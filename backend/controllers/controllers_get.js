@@ -22,7 +22,7 @@ const getAllUsers = (req, res) => {
 const getOneUser = (req, res) => {
     const id = parseInt(req.params.id);
 
-    client.query('SELECT * FROM utilisateurs WHERE id_utilisateurs = $1', [id], (err, result) => {
+    client.query('SELECT * FROM utilisateurs WHERE id_utilisateur = $1', [id], (err, result) => {
         if (err) {
             console.log(err);
         }
