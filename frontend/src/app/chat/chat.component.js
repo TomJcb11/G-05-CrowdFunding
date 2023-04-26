@@ -6,7 +6,7 @@ let autre = []
 //affiche les utilisateurs
 
 function fonction(){
-    fetch('http://localhost:8080/api/chats')
+    fetch('http://localhost:8080/api/users')
       .then(response => response.json())
     .then(data => {
       
