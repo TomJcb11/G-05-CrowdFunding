@@ -1,8 +1,10 @@
 const {Client} = require('pg');
 const client = new Client({
+    user:'postgres',
     host: 'localhost',
     port: 5432,
-    database: 'giverr'
+    database: 'projet_dev_3',
+    password: 'root'
 });
 
 //test connection à la base de données
@@ -22,7 +24,28 @@ const getAllUsers = (req, res) => {
 const getOneUser = (req, res) => {
     const id = parseInt(req.params.id);
 
-    client.query('SELECT * FROM utilisateurs WHERE id_utilisateurs = $1', [id], (err, result) => {
+    client.query('SELECT * FROM utilisateurs WHERE id_utilisateur = $1', [id], (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        res.status(200).json(result.rows);
+    });
+};
+
+//chat
+const getAllChats = (req, res) => {
+    client.query('SELECT * FROM chat JOIN utilisateurs ON utilisateurs.id_utilisateur = chat.id_utilisateurs ', (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        res.status(200).json(result.rows);
+    });
+};
+
+const getOneUserChat = (req, res) => {
+    const id = parseInt(req.params.id);
+
+    client.query('SELECT * FROM chat', [id], (err, result) => {
         if (err) {
             console.log(err);
         }
@@ -31,8 +54,12 @@ const getOneUser = (req, res) => {
 };
 
 
+
 // exportation des fonctions
 module.exports = {
     getAllUsers,
-    getOneUser
+    getOneUser,
+    getAllChats,
+    getOneUserChat
 };
+

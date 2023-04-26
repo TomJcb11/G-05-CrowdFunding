@@ -12,7 +12,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     .then(data => {
     // Utilisez les données récupérées dans votre frontend
       console.log(data);})
-    .catch(error => console.error(error))
+    .catch(error => console.error(error));
   }
 
   fonction();

@@ -12,8 +12,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/api/users', get.getAllUsers);
-
 router.get('/api/users/:id', get.getOneUser);
+
+//chat
+router.get('/api/chats/', get.getAllChats);
+router.get('/api/chats/:id', get.getOneUserChat)
 
 // exportation des routes
 module.exports = router;
