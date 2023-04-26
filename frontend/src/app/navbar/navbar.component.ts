@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'app-navbar',
@@ -6,11 +7,15 @@ import { Component, ElementRef, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
+  public users: any;
 
   constructor(private el: ElementRef) {}
 
+  //For charging scripts when the component is loaded
   ngOnInit() {
+
+    //Script for a dropdown menu
     const profileBtn = this.el.nativeElement.querySelector('.profile');
     const dropdown = this.el.nativeElement.querySelector('#dropdown-menu');
 
@@ -22,4 +27,5 @@ export class NavbarComponent {
       }
     });
   }
+
 }

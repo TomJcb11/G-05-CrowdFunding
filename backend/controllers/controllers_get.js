@@ -1,3 +1,4 @@
+// import module for connexion to the database
 const {Client} = require('pg');
 const client = new Client({
     host: 'localhost',
@@ -5,13 +6,13 @@ const client = new Client({
     database: 'giverr'
 });
 
-//test connection à la base de données
-client.connect(console.log('connexion réussie'));
+// test to connect to the database
+client.connect(console.log('get connexion réussie'));
 
-// récupération de tous les utilisateurs
+// get all users
 const getAllUsers = (req, res) => {
 
-    client.query('SELECT * FROM utilisateurs', (err, result) => {
+    client.query('SELECT * FROM tableUsers', (err, result) => {
         if (err) {
             console.log(err);
         }
@@ -19,10 +20,22 @@ const getAllUsers = (req, res) => {
     });
 };
 
+// get one user
 const getOneUser = (req, res) => {
     const id = parseInt(req.params.id);
 
-    client.query('SELECT * FROM utilisateurs WHERE id_utilisateur = $1', [id], (err, result) => {
+    client.query('SELECT * FROM tableUsers WHERE id_user = $1', [id], (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        res.status(200).json(result.rows);
+    });
+};
+
+// get all projects
+const getAllProjects = (req, res) => {
+
+    client.query('SELECT * FROM tableProjects', (err, result) => {
         if (err) {
             console.log(err);
         }
@@ -31,8 +44,9 @@ const getOneUser = (req, res) => {
 };
 
 
-// exportation des fonctions
+// export my controllers get
 module.exports = {
     getAllUsers,
-    getOneUser
+    getOneUser,
+    getAllProjects
 };
