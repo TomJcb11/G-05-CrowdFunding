@@ -6,7 +6,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './navbar/home/home.component';
 import { SearchComponent } from './navbar/search/search.component';
 import { MyProjectComponent } from './navbar/my-project/my-project.component';
-import { MenuComponent } from './navbar/menu/menu.component';
+import { DropdownComponent } from './navbar/dropdown/dropdown.component';
+import { ProjectHudComponent } from './project-hud/project-hud.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MenuComponent } from './navbar/menu/menu.component';
     HomeComponent,
     SearchComponent,
     MyProjectComponent,
-    MenuComponent,
+    DropdownComponent,
+    ProjectHudComponent,
     
   ],
   imports: [
