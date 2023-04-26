@@ -27,6 +27,5 @@ export class MenuComponent implements AfterViewInit {
       dropdownMenu.classList.add("hidden-dropdown");
     }
   }
-  
 
 }
