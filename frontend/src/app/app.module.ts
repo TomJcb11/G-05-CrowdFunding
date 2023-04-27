@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -21,7 +22,8 @@ import { ProjectHudComponent } from './project-hud/project-hud.component';
     
   ],
   imports: [
-    BrowserModule
+    BrowserModule,HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
