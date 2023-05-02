@@ -7,13 +7,16 @@ const get = require('../controllers/controllers_get');
 //const del = require('../controllers/controler_delete');
 
 
+
 router.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send("Vous êtes bien sur l'api");
 });
 
 router.get('/api/users', get.getAllUsers);
 
 router.get('/api/users/:id', get.getOneUser);
+
+router.get('/api/odd',get.getAllOdd);
 
 // exportation des routes
 module.exports = router;

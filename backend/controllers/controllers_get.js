@@ -2,7 +2,9 @@ const {Client} = require('pg');
 const client = new Client({
     host: 'localhost',
     port: 5432,
-    database: 'giverr'
+    database: 'giverr',
+    password: 'admin',
+    user: 'postgres'
 });
 
 //test connection à la base de données
@@ -22,7 +24,7 @@ const getAllUsers = (req, res) => {
 const getOneUser = (req, res) => {
     const id = parseInt(req.params.id);
 
-    client.query('SELECT * FROM utilisateurs WHERE id_utilisateurs = $1', [id], (err, result) => {
+    client.query('SELECT * FROM utilisateurs WHERE id_utilisateur = $1', [id], (err, result) => {
         if (err) {
             console.log(err);
         }
@@ -30,9 +32,20 @@ const getOneUser = (req, res) => {
     });
 };
 
+const getAllOdd=(req,res) =>{
+    client.query('SELECT odd.nom_odd FROM odd INNER JOIN projets ON odd.id_odd = projets.odd_projet GROUP BY odd.nom_odd;', (error, result) => {
+      if (error) {
+        throw error;
+      }
+      res.send(result.rows);
+    });
+};
+
+
 
 // exportation des fonctions
 module.exports = {
     getAllUsers,
-    getOneUser
+    getOneUser,
+    getAllOdd
 };

@@ -9,6 +9,7 @@ import { SearchComponent } from './navbar/search/search.component';
 import { MyProjectComponent } from './navbar/my-project/my-project.component';
 import { DropdownComponent } from './navbar/dropdown/dropdown.component';
 import { ProjectHudComponent } from './project-hud/project-hud.component';
+import { OddComponent } from './odd/odd.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ProjectHudComponent } from './project-hud/project-hud.component';
     MyProjectComponent,
     DropdownComponent,
     ProjectHudComponent,
+    OddComponent,
     
   ],
   imports: [
