@@ -1,4 +1,4 @@
-const {Client} = require('pg');
+const { Client } = require('pg');
 const client = new Client({
     host: 'localhost',
     port: 5432,
@@ -30,9 +30,32 @@ const getOneUser = (req, res) => {
     });
 };
 
+const getAllProjects = (req, res) => {
+
+    client.query('SELECT * FROM projects', (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        res.status(200).json(result.rows);
+    });
+};
+
+const getOneProject = (req, res) => {
+    const id = parseInt(req.params.id);
+
+    client.query('SELECT * FROM projects WHERE id_projet = $1', [id], (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        res.status(200).json(result.rows);
+    });
+};
+
 
 // exportation des fonctions
 module.exports = {
     getAllUsers,
-    getOneUser
+    getOneUser,
+    getAllProjects,
+    getOneProject
 };

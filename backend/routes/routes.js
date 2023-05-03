@@ -15,5 +15,9 @@ router.get('/api/users', get.getAllUsers);
 
 router.get('/api/users/:id', get.getOneUser);
 
+router.get('/api/projects', get.getAllProjects);
+
+router.get('/api/projects/:id', get.getOneProject);
+
 // exportation des routes
 module.exports = router;
