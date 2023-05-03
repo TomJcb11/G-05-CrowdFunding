@@ -1,21 +1,34 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Service de messagerie instantanée</title>
-    <script type="text/javascript" src="./chat.component.js"></script>
-    <link rel="stylesheet" href="./chat.component.scss">
-
+	<title>Formulaire TypeScript</title>
 </head>
+<body>
 
-<body >
-    <p>Trouvez vous votre profil ?<select id="choix_utilisateurs" ></select></p>
-    <div id="chat-container">
-        <div id="nom"></div><div id="message-list"></div>
-        <div id="input-container">
-            <input type="text" id="message-input" placeholder="Tapez votre message...">
-            <button id="send-button">Envoyer</button>
-        </div>
+  <select id="users">
+    <option  *ngFor="let usr of chatService.users" [value] = "usr.id_utilisateur">
+      {{usr.nom_utilisateur}} 
+      {{usr.prenom_utilisateur}}
+    </option>
+  </select>
+  
+  <div id="container">
+    <div *ngFor="let  msg of chatService.messages">
+      {{msg.nom_utilisateur}} :
+      {{msg.chat_message}} 
     </div>
+  </div>
+
+  <form  id="zone_message">
+  <div class="message-bar">
+    <label for="message">Message :</label>
+    <textarea id="message" name="message" required></textarea><br>
+    <button id="send-button" (click)="onSendMessage()">Envoyer</button>
+  </div>
+  </form>
+
 </body>
 </html>
+
+
+  

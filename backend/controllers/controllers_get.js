@@ -34,10 +34,11 @@ const getOneUser = (req, res) => {
 
 //chat
 const getAllChats = (req, res) => {
-    client.query('SELECT * FROM chat JOIN utilisateurs ON utilisateurs.id_utilisateur = chat.id_utilisateurs ', (err, result) => {
+    client.query('SELECT * FROM chat JOIN utilisateurs ON utilisateurs.id_utilisateur = chat.id_utilisateurs ORDER BY chat_id ASC ', (err, result) => {
         if (err) {
             console.log(err);
         }
+        console.log(result)
         res.status(200).json(result.rows);
     });
 };
