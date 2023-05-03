@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ProjetService } from '../services/All_projects/all-projects.service';
 
 @Component({
   selector: 'app-my-projects',
@@ -9,14 +9,14 @@ import { HttpClient } from '@angular/common/http';
 export class MyProjectsComponent {
   projects: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private projetService: ProjetService) { }
 
   ngOnInit() {
-    this.http.get('http://localhost:8080/api/projects/').subscribe(projects => {
-      this.projects = projects; });
-    /**trackById(index: Number, project: Projects): number{
-      return projects.id_projet
-    }*/
-   
+    this.projetService.getProjets().subscribe(projects => 
+      this.projects = projects );
+  }
+
+  trackById(index: number, project: any): number {
+    return project.id_projet;
   }
 }
