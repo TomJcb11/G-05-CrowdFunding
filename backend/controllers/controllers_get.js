@@ -37,14 +37,39 @@ const getAllOdd=(req,res) =>{
       if (error) {
         throw error;
       }
-      res.send(result.rows);
+      res.status(200).json(result.rows);
+    });
+};
+
+const getAllProjectFromOdd = (req, res) => {
+    const nomOdd = req.params.nomOdd;
+
+    client.query('SELECT * FROM projets WHERE odd_projet = (SELECT id_odd FROM odd WHERE nom_odd = $1)', [nomOdd], (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        res.status(200).json(result.rows);
+    });
+};
+
+
+const getAllProject=(req,res) =>{
+    client.query('SELECT projets.*, statuts.nom_statut FROM projets JOIN statuts ON projets.statut_projet = statuts.id_statut ORDER BY projets.id_projet;', (error, result) => {
+      if (error) {
+        throw error;
+      }
+      const projects = result.rows.map(row => ({
+        ...row,
+        statut: { nom_statut: row.nom_statut }
+      }));
+      res.status(200).json(result.rows);
     });
 };
 
 const getOneProject = (req, res) => {
     const id = parseInt(req.params.id);
 
-    client.query('SELECT p.*, a.id_utilisateur, s.nom_statut, o.nom_odd FROM projets p INNER JOIN utilisateurs a ON p.admin_projet = a.id_utilisateur INNER JOIN statuts s ON p.statut_projet = s.id_statut INNER JOIN odd o ON p.odd_projet = o.id_odd WHERE p.id_projet = 2;', [id], (err, result) => {
+    client.query('SELECT p.*, a.id_utilisateur, s.nom_statut, o.nom_odd FROM projets p INNER JOIN utilisateurs a ON p.admin_projet = a.id_utilisateur INNER JOIN statuts s ON p.statut_projet = s.id_statut INNER JOIN odd o ON p.odd_projet = o.id_odd WHERE p.id_projet = $1;', [id], (err, result) => {
         if (err) {
             console.log(err);
         }
@@ -57,5 +82,8 @@ const getOneProject = (req, res) => {
 module.exports = {
     getAllUsers,
     getOneUser,
-    getAllOdd
+    getAllOdd,
+    getAllProjectFromOdd,
+    getAllProject,
+    getOneProject
 };

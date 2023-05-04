@@ -1,18 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { GetService } from '../Services/get.service';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { Odd } from '../../../models/odd_model';
+import { RouterModule } from '@angular/router';
+
 
 
 @Component({
   selector: 'app-odd',
-  template: `
-    <ul class="container">
-      <button class="container" *ngFor="let item of myData" [routerLink]="['/' + item.nom_odd]">{{ item.nom_odd }}</button>
-
-    </ul>
-
-  `,
+  templateUrl:'./odd.component.html',
   styleUrls: ['./odd.component.scss']
 })
 export class OddComponent implements OnInit {
@@ -25,7 +21,14 @@ export class OddComponent implements OnInit {
     .subscribe(data => this.myData = data);
   }
   redirectTo(routeName: string) {
-    this.router.navigateByUrl('/' + routeName);
-  }
+    const oddProject = this.GetService.getProjectFromOdd(routeName);
+    const navigationExtras: NavigationExtras = {
+      state: { odd: routeName }
+    };
+    
 }
+  }
+  
+  
+
 
