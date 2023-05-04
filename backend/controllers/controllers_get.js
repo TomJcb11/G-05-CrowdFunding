@@ -41,6 +41,16 @@ const getAllOdd=(req,res) =>{
     });
 };
 
+const getOneProject = (req, res) => {
+    const id = parseInt(req.params.id);
+
+    client.query('SELECT p.*, a.id_utilisateur, s.nom_statut, o.nom_odd FROM projets p INNER JOIN utilisateurs a ON p.admin_projet = a.id_utilisateur INNER JOIN statuts s ON p.statut_projet = s.id_statut INNER JOIN odd o ON p.odd_projet = o.id_odd WHERE p.id_projet = 2;', [id], (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        res.status(200).json(result.rows);
+    });
+};
 
 
 // exportation des fonctions

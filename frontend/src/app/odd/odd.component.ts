@@ -8,7 +8,8 @@ import { Odd } from '../../../models/odd_model';
   selector: 'app-odd',
   template: `
     <ul class="container">
-      <button class="container" *ngFor="let item of myData" (click)="redirectTo(item.nom_odd)">{{ item.nom_odd }}</button>
+      <button class="container" *ngFor="let item of myData" [routerLink]="['/' + item.nom_odd]">{{ item.nom_odd }}</button>
+
     </ul>
 
   `,
