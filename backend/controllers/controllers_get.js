@@ -34,7 +34,7 @@ const getOneUser = (req, res) => {
 
 const getAllProjects = (req, res) => {
 
-    client.query('SELECT * FROM projects', (err, result) => {
+    client.query('SELECT * FROM projects ORDER BY id_projet', (err, result) => {
         if (err) {
             console.log(err);
         }
