@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 })
 export class OddComponent implements OnInit {
   myData: any[] | any;
+  display_odd= true
   
   constructor(private GetService: GetService, private router: Router) { }
   

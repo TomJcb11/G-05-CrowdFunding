@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GetService } from '../../Services/get.service';
+import { ProjetsComponent } from '../projets.component';
 
 @Component({
   selector: 'app-one-project',
@@ -10,7 +11,7 @@ import { GetService } from '../../Services/get.service';
 export class OneProjectComponent implements OnInit {
   project_info: any;
 
-  constructor(private GetService: GetService, private route: ActivatedRoute) { }
+  constructor(private GetService: GetService, private route: ActivatedRoute,private parent :ProjetsComponent) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -18,4 +19,5 @@ export class OneProjectComponent implements OnInit {
       this.project_info = project_info;
     });
   }
+  
 }

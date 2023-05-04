@@ -69,7 +69,7 @@ const getAllProject=(req,res) =>{
 const getOneProject = (req, res) => {
     const id = parseInt(req.params.id);
 
-    client.query('SELECT p.*, a.id_utilisateur, s.nom_statut, o.nom_odd FROM projets p INNER JOIN utilisateurs a ON p.admin_projet = a.id_utilisateur INNER JOIN statuts s ON p.statut_projet = s.id_statut INNER JOIN odd o ON p.odd_projet = o.id_odd WHERE p.id_projet = $1;', [id], (err, result) => {
+    client.query('   SELECT projets.*, statuts.nom_statut ,identifiant_utilisateur ,nom_odd from projets JOIN statuts ON projets.statut_projet = statuts.id_statut  join utilisateurs on utilisateurs.id_utilisateur=projets.admin_projet  JOIN odd on odd_projet = id_odd where  id_projet = $1', [id], (err, result) => {
         if (err) {
             console.log(err);
         }

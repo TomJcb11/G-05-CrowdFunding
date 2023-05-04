@@ -18,7 +18,7 @@ export class GetService {
     return this.http.get(`http://localhost:8080/api/project`);
   }
   getOneProject(id: string | null): Observable<any> {
-    const url = `http://localhost:8080/api/project/${id ?? ''}`;
+    const url = `http://localhost:8080/api/project/${id}`;
     return this.http.get<any>(url);
 }
   
