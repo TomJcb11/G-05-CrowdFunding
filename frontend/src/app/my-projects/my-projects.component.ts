@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener  } from '@angular/core';
 import { ProjetService } from '../services/All_projects/all-projects.service';
 
 @Component({
@@ -9,6 +9,14 @@ import { ProjetService } from '../services/All_projects/all-projects.service';
 export class MyProjectsComponent {
   projects: any;
   adminId: number = 1; // Remplacez 1 par l'ID de l'admin que vous souhaitez filtrer
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: MouseEvent) {
+    const menuContainers = document.querySelectorAll('.menu-container.show');
+    menuContainers.forEach(menu => {
+      menu.classList.remove('show');
+    });
+  }
 
   constructor(private projetService: ProjetService) { }
 
@@ -21,13 +29,26 @@ export class MyProjectsComponent {
   trackById(index: number, project: any): number {
     return project.id_projet;
   }
+
   toggleMenu(event: MouseEvent) {
+    event.stopPropagation(); // Empêche la propagation de l'événement au bouton parent
     const icon = event.target as HTMLElement;
-    const button = icon.closest('.project');
-    if (!button) return;
-    const menu = button.querySelector('.menu-container');
+    const menuIcon = icon.closest('.menu-icon');
+    if (!menuIcon) return;
+    const menu = menuIcon.querySelector('.menu-container');
     if (!menu) return;
     menu.classList.toggle('show');
   }
-  
+
+  /**onDeleteProject(id: number) {
+    this.projetService.deleteProjet(id).subscribe(
+      () => {
+        // Suppression réussie, mettez à jour la liste des projets (par exemple, en rechargeant les données)
+        this.ngOnInit();
+      },
+      error => {
+        console.error('Error deleting project:', error);
+      }
+    );
+  }*/
 }

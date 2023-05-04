@@ -30,5 +30,52 @@
 }
 
 .project:hover {
-    transform: scale(1.05);
+    transform: scale(1.07);
+}
+
+.project {
+    position: relative;
+}
+
+.menu-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.menu-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2px;
+    z-index: 1;
+    border-radius: 13px;
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a {
+    display: block;
+    padding: 4px 8px;
+    text-decoration: none;
+    color: #333;
+}
+
+.menu li a:hover {
+    background-color: #1a5623;
+    color: #fff;
+    border-radius: 13px;
+}
+
+.menu-container.show {
+    display: block;
 }

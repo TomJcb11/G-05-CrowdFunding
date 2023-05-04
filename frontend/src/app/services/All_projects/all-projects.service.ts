@@ -14,4 +14,7 @@ export class ProjetService {
   getProjets(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
+  /**deleteProjet(id: number) {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }*/
 }
