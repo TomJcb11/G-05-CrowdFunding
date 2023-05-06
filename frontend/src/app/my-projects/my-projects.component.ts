@@ -1,4 +1,6 @@
-import { Component, HostListener  } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CustomConfirmDialogComponent } from '../custom-confirm-dialog/custom-confirm-dialog.component';
 import { ProjetService } from '../services/All_projects/all-projects.service';
 
 @Component({
@@ -6,23 +8,23 @@ import { ProjetService } from '../services/All_projects/all-projects.service';
   templateUrl: './my-projects.component.html',
   styleUrls: ['./my-projects.component.scss']
 })
-export class MyProjectsComponent {
+export class MyProjectsComponent implements OnInit {
   projects: any;
   adminId: number = 1; // Remplacez 1 par l'ID de l'admin que vous souhaitez filtrer
+
+  constructor(private dialog: MatDialog, private projetService: ProjetService) { }
+
+  ngOnInit() {
+    this.projetService.getProjets().subscribe(projects => {
+      this.projects = projects.filter((project: any) => project.admin_projet === this.adminId);
+    });
+  }
 
   @HostListener('document:click', ['$event'])
   onClickOutside(event: MouseEvent) {
     const menuContainers = document.querySelectorAll('.menu-container.show');
     menuContainers.forEach(menu => {
       menu.classList.remove('show');
-    });
-  }
-
-  constructor(private projetService: ProjetService) { }
-
-  ngOnInit() {
-    this.projetService.getProjets().subscribe(projects => {
-      this.projects = projects.filter((project: any) => project.admin_projet === this.adminId);
     });
   }
 
@@ -40,7 +42,24 @@ export class MyProjectsComponent {
     menu.classList.toggle('show');
   }
 
-  /**onDeleteProject(id: number) {
+  onDeleteProject(index: number) {
+    const dialogRef = this.dialog.open(CustomConfirmDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.projects.splice(index, 1);
+      }
+    });
+  }
+}
+
+  /**confirmDelete(projectId: number, event: MouseEvent): void {
+    event.preventDefault();
+    if (confirm('Voulez-vous vraiment supprimer ce projet ?')) {
+      this.onDeleteProject(projectId);
+    }
+  }
+  onDeleteProject(id: number) {
     this.projetService.deleteProjet(id).subscribe(
       () => {
         // Suppression réussie, mettez à jour la liste des projets (par exemple, en rechargeant les données)
@@ -51,4 +70,4 @@ export class MyProjectsComponent {
       }
     );
   }*/
-}
+
