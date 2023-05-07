@@ -9,12 +9,16 @@ import { SearchComponent } from './navbar/search/search.component';
 import { MyProjectBComponent } from './navbar/my-project-b/my-project-b.component';
 import { DropdownComponent } from './navbar/dropdown/dropdown.component';
 import { MyProjectsComponent } from './my-projects/my-projects.component';
-
 import { CustomConfirmDialogComponent } from './custom-confirm-dialog/custom-confirm-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MyProjectPageComponent } from './my-project-page/my-project-page.component';
 
+const appRoutes: Routes = [
+  { path: '', component: NavbarComponent },
+  { path: 'my-project', component: MyProjectPageComponent }
+];
 
 @NgModule({
   declarations: [
@@ -26,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DropdownComponent,
     MyProjectsComponent,
     CustomConfirmDialogComponent,
+    MyProjectPageComponent,
     
   ],
   imports: [
@@ -34,7 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
-    /*RouterModule.forRoot(routes)*/
+    RouterModule.forRoot(appRoutes)
   ],
   exports:[RouterModule],
   providers: [],
