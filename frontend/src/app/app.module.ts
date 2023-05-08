@@ -11,14 +11,16 @@ import { MyProjectComponent } from './navbar/my-project/my-project.component';
 import { DropdownComponent } from './navbar/dropdown/dropdown.component';
 import { OddComponent } from './odd/odd.component';
 import { ProjetsComponent } from './projets/projets.component';
-import { OneProjectComponent } from './projets/one-project/one-project.component';
+
+import { AllTheProjectsComponent } from './projets/all-the-projects/all-the-projects.component';
+import { OneProjectBasedOnIdComponent } from './projets/one-project-based-on-id/one-project-based-on-id.component';
 
 
 
 const routes: Routes = [
   { path: '', component: OddComponent },
   { path: ':oddName', component: MyProjectComponent },
-  {path: ':Projet/:id', component: OneProjectComponent }
+
 ];
 
 @NgModule({
@@ -31,16 +33,17 @@ const routes: Routes = [
     DropdownComponent,
     OddComponent,
     ProjetsComponent,
-    OneProjectComponent
-    
-    
-    
+    AllTheProjectsComponent,
+    OneProjectBasedOnIdComponent
+
+
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes)
-  
+
   ],
   exports:[RouterModule],
   providers: [],

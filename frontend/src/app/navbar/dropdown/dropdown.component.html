@@ -1,5 +1,7 @@
 <div class="menu">
-    <button (click)="toggleOptions()">Options</button>
+    <button (click)="toggleOptions()">
+      <img src="../../../assets/user.svg">
+    </button>
     <ul *ngIf="showOptions">
       <li><a href="/profile">Profil </a></li>
       <li><a href="/settings">Paramètres </a></li>

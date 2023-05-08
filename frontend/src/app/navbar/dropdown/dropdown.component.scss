@@ -1,5 +1,6 @@
 .menu {
     button {
+      display: flex;
       background-color: #006633;
       color: #fff;
        &:visited{
@@ -11,6 +12,11 @@
       cursor: pointer;
       font-size: 16px;
       margin-right: 10px;
+    }
+    img{
+      height: 30px;
+      width: 30px;
+
     }
   
     ul {

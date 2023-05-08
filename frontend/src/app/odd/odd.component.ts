@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetService } from '../Services/get.service';
 import { NavigationExtras, Router } from '@angular/router';
-import { Odd } from '../../../models/odd_model';
-import { RouterModule } from '@angular/router';
 
 
 
