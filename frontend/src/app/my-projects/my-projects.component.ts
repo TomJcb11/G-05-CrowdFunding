@@ -42,7 +42,7 @@ export class MyProjectsComponent implements OnInit {
     menu.classList.toggle('show');
   }
 
-  onDeleteProject(index: number) {
+  /*onDeleteProject(index: number) {
     const dialogRef = this.dialog.open(CustomConfirmDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
@@ -50,24 +50,18 @@ export class MyProjectsComponent implements OnInit {
         this.projects.splice(index, 1);
       }
     });
+  }*/
+  onDeleteProject(index: number) {
+    const dialogRef = this.dialog.open(CustomConfirmDialogComponent);
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        const projectId = this.projects[index].id_projet;
+        this.projetService.deleteProjet(projectId).subscribe(() => {
+          this.projects.splice(index, 1);
+        });
+      }
+    });
   }
 }
-
-  /**confirmDelete(projectId: number, event: MouseEvent): void {
-    event.preventDefault();
-    if (confirm('Voulez-vous vraiment supprimer ce projet ?')) {
-      this.onDeleteProject(projectId);
-    }
-  }
-  onDeleteProject(id: number) {
-    this.projetService.deleteProjet(id).subscribe(
-      () => {
-        // Suppression réussie, mettez à jour la liste des projets (par exemple, en rechargeant les données)
-        this.ngOnInit();
-      },
-      error => {
-        console.error('Error deleting project:', error);
-      }
-    );
-  }*/
 

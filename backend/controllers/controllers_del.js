@@ -1,4 +1,4 @@
-/**const { Client } = require('pg');
+const { Client } = require('pg');
 const client = new Client({
     host: 'localhost',
     port: 5432,
@@ -7,22 +7,20 @@ const client = new Client({
     user: 'postgres'
 });
 
-// Test de connexion à la base de données
+//test connection à la base de données
 client.connect(console.log('connexion réussie'));
 
-
-const delOneProject = (req, res) => {
+const deleteOneProject = (req, res) => {
     const id = parseInt(req.params.id);
 
     client.query('DELETE FROM projects WHERE id_projet = $1', [id], (err, result) => {
         if (err) {
             console.log(err);
         }
-        res.status(204).send(); // Réponse avec le code de statut HTTP 204 (No Content)
+        res.status(200).json({ message: `Project with ID ${id} has been deleted.` });
     });
 };
 
-// Exportation des fonctions
 module.exports = {
-    delOneProject
-};*/
+    deleteOneProject,
+};

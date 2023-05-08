@@ -3,8 +3,8 @@ const router = express.Router();
 
 const get = require('../controllers/controllers_get');
 //const post = require('../controllers/controllers_post');
-//const put = require('../controllers/controler_put');
-//const del = require('../controllers/controler_del');
+//const put = require('../controllers/controllers_put');
+const del = require('../controllers/controllers_del');
 
 
 router.get('/', (req, res) => {
@@ -19,7 +19,7 @@ router.get('/api/projects', get.getAllProjects);
 
 router.get('/api/projects/:id', get.getOneProject);
 
-//router.del('/api/project/:id', get.delOneProject)
+router.delete('/api/projects/:id', del.deleteOneProject);
 
 // exportation des routes
 module.exports = router;
