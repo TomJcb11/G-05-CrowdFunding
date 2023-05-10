@@ -1,0 +1,16 @@
+<!-- modify-project.component.html 
+<form (ngSubmit)="onSubmit()">
+    <label for="nom_projet">Nom du projet:</label>
+    <input type="text" id="nom_projet" [(ngModel)]="project.nom_projet" name="nom_projet">
+
+    
+
+<button type="submit">Enregistrer les modifications</button>
+</form>-->
+<form #projectForm="ngForm" (ngSubmit)="onSubmit()" ngNativeValidate>
+    <label>Project name : </label><input type="text" ngModel name="projectName" id="projectName" required/><br>
+    <label>Description : </label><input type="text" ngModel name="projectDescription" id="projectDescription" required/><br>
+    <!--<label>Project Picture :</label><input type="file" ngModel name="projectPicture" accept="image/png, image/jpeg" id="projectPicture" (change)="onFileSelected($event)" /><br>-->
+    <label>Donation : </label><input type="number" id="moneyValue" ngModel name="projectMoney" required/><br>
+    <input type="submit" value="Submit">
+</form>

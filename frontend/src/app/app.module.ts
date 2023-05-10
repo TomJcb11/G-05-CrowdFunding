@@ -14,10 +14,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyProjectPageComponent } from './my-project-page/my-project-page.component';
+import { ModifyProjectComponent } from './modify-project/modify-project.component';
+import { FormsModule } from '@angular/forms';
+import { ModifyProjectPageComponent } from './modify-project-page/modify-project-page.component';
+
 
 const appRoutes: Routes = [
   { path: '', component: NavbarComponent },
-  { path: 'my-project', component: MyProjectPageComponent }
+  { path: 'my-project', component: MyProjectPageComponent },
+  { path: 'my-project/modify/:id', component: ModifyProjectPageComponent}
 ];
 
 @NgModule({
@@ -31,6 +36,8 @@ const appRoutes: Routes = [
     MyProjectsComponent,
     CustomConfirmDialogComponent,
     MyProjectPageComponent,
+    ModifyProjectComponent,
+    ModifyProjectPageComponent,
     
   ],
   imports: [
@@ -39,6 +46,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   exports:[RouterModule],

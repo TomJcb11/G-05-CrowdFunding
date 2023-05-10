@@ -14,7 +14,14 @@ export class ProjetService {
   getProjets(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
+  getOneProject(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
   deleteProjet(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
+  updateProject(id: number, project: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/modify/${id}`, project);
+  }
+  
 }

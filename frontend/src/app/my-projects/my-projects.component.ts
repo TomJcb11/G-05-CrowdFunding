@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomConfirmDialogComponent } from '../custom-confirm-dialog/custom-confirm-dialog.component';
 import { ProjetService } from '../services/All_projects/all-projects.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-projects',
@@ -12,7 +13,7 @@ export class MyProjectsComponent implements OnInit {
   projects: any;
   adminId: number = 1; // Remplacez 1 par l'ID de l'admin que vous souhaitez filtrer
 
-  constructor(private dialog: MatDialog, private projetService: ProjetService) { }
+  constructor(private dialog: MatDialog, private projetService: ProjetService,private router: Router) { }
 
   ngOnInit() {
     this.projetService.getProjets().subscribe(projects => {
@@ -42,15 +43,9 @@ export class MyProjectsComponent implements OnInit {
     menu.classList.toggle('show');
   }
 
-  /*onDeleteProject(index: number) {
-    const dialogRef = this.dialog.open(CustomConfirmDialogComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.projects.splice(index, 1);
-      }
-    });
-  }*/
+  onEditProject(projectId: number) {
+    this.router.navigate(['/my-projects/modify', projectId]);
+  }
   onDeleteProject(index: number) {
     const dialogRef = this.dialog.open(CustomConfirmDialogComponent);
   
