@@ -1,18 +1,71 @@
-div {
-  margin: 20px;
-  padding: 10px;
-  border: 1px solid darkgreen;
-  border-width: 4px;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+}
 
-  h2 {
-    font-size: 24px;
-    font-weight: bold;
+.project {
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  position: relative;
+
+  h1 {
+    font-size: 50px;
     margin-bottom: 10px;
   }
 
-  p {
-    font-size: 18px;
-    line-height: 1.5;
+  h2 {
+    font-size: 36px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 0;
     margin-bottom: 5px;
+
+    &.suspended {
+      color: red;
+    }
+
+    &.completed {
+      color: darkgray;
+    }
+
+    &.in-progress {
+      color: lightgreen;
+    }
+  }
+
+  progress {
+    width: 100%;
+    height: 20px;
+    margin-top: 10px;
+
+    &::-webkit-progress-value {
+      background-color: #4287f5;
+    }
+
+    &::-moz-progress-bar {
+      background-color: #4287f5;
+    }
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  .recolte {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    h3 {
+      font-size: 18px;
+      margin-right: 20px;
+    }
   }
 }

@@ -12,7 +12,7 @@ const routes: Routes = [
     //{ path: 'createproject', component: CreateProjectComponent, canActivate: [AuthGuard]},
     //{ path: 'login', component: LoginComponent},
     {path: '',component:AllTheProjectsComponent},
-    {path: 'oneProject',component: OneProjectBasedOnIdComponent}
+    {path: 'project/:projectName' , component:OneProjectBasedOnIdComponent}
 
 ];
 

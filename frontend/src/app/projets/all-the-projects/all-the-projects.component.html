@@ -5,7 +5,7 @@
 <div>
   <ul *ngFor="let project of projects" class="project">
     <li id="li">
-      <button class="PrBtn {{ project.nom_statut === 'Terminé' ? 'finished' : project.nom_statut === 'Suspendu' ? 'suspended' : 'in-progress' }}"  (click)="filterByProjectName(project.nom_projet)">
+      <button class="PrBtn {{ project.nom_statut === 'Terminé' ? 'finished' : project.nom_statut === 'Suspendu' ? 'suspended' : 'in-progress' }}"  (click)="redirectToFilteredPage(project.nom_projet)">
         <h1>{{project.nom_projet}}</h1>
         <p>{{ project.description_projet }}</p>
         <h3><b>Objectif: {{ project.objectif_projet }} €</b></h3>

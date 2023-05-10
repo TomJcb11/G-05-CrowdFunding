@@ -28,8 +28,8 @@ export class GetService {
   getProject(){
     return this.http.get<allProjects[]>(`http://localhost:8080/api/project`);
   }
-  getOneProject(id: string | null): Observable<any> {
-    const url = `http://localhost:8080/api/project/${id}`;
+  getOneProject(name: string | null): Observable<any> {
+    const url = `http://localhost:8080/api/project/${name}`;
     return this.http.get<any>(url);
 }
 
