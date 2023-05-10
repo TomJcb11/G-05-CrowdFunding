@@ -9,12 +9,12 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './navbar/home/home.component';
-import { SearchComponent } from './navbar/search/search.component';
 import { MyProjectComponent } from './navbar/my-project/my-project.component';
 import { DropdownComponent } from './navbar/dropdown/dropdown.component';
 import { ProjetsComponent } from './projets/projets.component';
 import { AllTheProjectsComponent } from './projets/all-the-projects/all-the-projects.component';
 import { OneProjectBasedOnIdComponent } from './projets/one-project-based-on-id/one-project-based-on-id.component';
+import { OddProjetComponent } from './projets/odd-projet/odd-projet.component';
 
 
 
@@ -24,12 +24,12 @@ import { OneProjectBasedOnIdComponent } from './projets/one-project-based-on-id/
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    SearchComponent,
     MyProjectComponent,
     DropdownComponent,
     ProjetsComponent,
     AllTheProjectsComponent,
-    OneProjectBasedOnIdComponent
+    OneProjectBasedOnIdComponent,
+    OddProjetComponent
 
 
 
