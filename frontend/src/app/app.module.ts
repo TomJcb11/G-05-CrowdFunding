@@ -31,7 +31,6 @@ const routes: Routes = [
     SearchComponent,
     MyProjectComponent,
     DropdownComponent,
-    OddComponent,
     ProjetsComponent,
     AllTheProjectsComponent,
     OneProjectBasedOnIdComponent

@@ -15,10 +15,6 @@ export class GetService {
   searchProject(search:string){
     //return this.getProject().filter((project: { nomOdd: any; })=>project.nomOdd)
   }
-
-
-
-
   getData(): Observable<any[]> {
     return this.http.get<any[]>('http://localhost:8080/api/odd');
   }
