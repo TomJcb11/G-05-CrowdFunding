@@ -24,11 +24,6 @@ export class AllTheProjectsComponent implements OnInit {
     this.getService.getProject().subscribe(data => this.projects = data);
   }
 
-  print(name: any) {
-    console.log(name);
-    console.log(this);
-  }
-
   filterbyodd(name: any) {
     this.getService.getProjectFromOdd(name).subscribe(data => {
       this.oddfiltered = data;
@@ -36,21 +31,12 @@ export class AllTheProjectsComponent implements OnInit {
     });
   }
 
-  filterByProjectName(name: string) {
-    this.getService.getOneProject(name).subscribe(data => {
-      this.filteredData = data;
-      console.log(this.filteredData);
-    });
+  redirectToOddProjects(odd: string) {
+    this.router.navigate(['/odd', odd]);
   }
 
-  redirectToFilteredPage(name: string) {
-    // Utiliser le nom du bouton comme nom du projet
-    const projectName = name;
-
-    // Appeler la méthode de filtrage
-    this.filterByProjectName(projectName);
-
-    // Rediriger vers la page souhaitée avec l'URL spécifique
+  redirectToFilteredPage(projectName: string) {
+    // Redirection vers la page de projet filtrée en fonction du nom du projet
     const encodedProjectName = encodeURIComponent(projectName);
     this.router.navigateByUrl('/project/' + encodedProjectName);
   }

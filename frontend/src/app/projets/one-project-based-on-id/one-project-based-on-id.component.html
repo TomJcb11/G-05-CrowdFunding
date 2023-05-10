@@ -1,20 +1,19 @@
-
-  <div *ngFor="let item of filteredData" class="project">
-    <h1>{{ item.nom_projet }}</h1>
-    <h2 [ngClass]="getStatusClass(item.nom_statut)"></h2>
-    <div class="recolte">
-      <h3>Fondateur et administrateur du projet:</h3>
-      <h3>{{ item.nom_utilisateur }}</h3>
-    </div>
-    <div class="recolte">
-      <h3>ODD liée: </h3>
-      <h3>{{ item.nom_odd }}</h3>
-    </div>
-    <div class="recolte">
-      <h3>Etat de la récolte: {{ item.recolte_projet }}</h3>
-      <h3>Objectif de la récolte: {{ item.objectif_projet }}</h3>
-    </div>
-    <progress [ngClass]="getStatusClass(item.nom_statut)" [value]="item.recolte_projet" [max]="item.objectif_projet"></progress><br><br>
-
-    <p>Description: <br>{{ item.description_projet }}</p>
+<div *ngFor="let item of filteredData" class="project">
+  <h1>{{ item.nom_projet }}</h1>
+  <h2 [ngClass]="getStatusClass(item.nom_statut)">{{ item.nom_statut }}</h2>
+  <div class="recolte">
+    <h3>Fondateur et administrateur du projet:</h3>
+    <h3>{{ item.nom_utilisateur }}</h3>
   </div>
+  <div class="recolte">
+    <h3>ODD liée: </h3>
+    <h3>{{ item.nom_odd }}</h3>
+  </div>
+  <div class="recolte">
+    <h3>Etat de la récolte: {{ item.recolte_projet }}</h3>
+    <h3>Objectif de la récolte: {{ item.objectif_projet }}</h3>
+  </div>
+  <progress [ngClass]="getStatusClass(item.nom_statut)" [value]="item.recolte_projet" [max]="item.objectif_projet"></progress><br><br>
+
+  <p>Description: <br>{{ item.description_projet }}</p>
+</div>

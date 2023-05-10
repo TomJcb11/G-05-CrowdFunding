@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-right: 4px;
+  margin-left: 3px;
+  border-bottom: 1px solid green;
+
+  button {
+    color: black;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 2px solid green;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: lightgreen;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.project {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style-type: none;
+  display: inline-flex;
+}
+
+.project button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 13px;
+  width: 300px;
+  height: 200px;
+  padding: 15px;
+  margin-bottom: 10px;
+  margin-right: 4px;
+  margin-left: 15px;
+  flex-basis: calc(25% - 20px);
+
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.project button:hover {
+  transform: scale(1.05);
+}
+
+.finished:not(.suspended):not(.in-progress) {
+  border: 2px solid grey;
+  background-color: darkgrey;
+}
+
+.suspended:not(.finished):not(.in-progress) {
+  border: 2px solid rgba(128, 32, 32, 0.664);
+  background-color: rgba(216, 63, 63, 0.459);
+}
+
+.in-progress:not(.finished):not(.suspended) {
+  border: 2px solid #66bb6a;
+  background-color: #c8e6c9;
+}
+
+.status {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.oneProject {
+  display: flex;
+  border-width: 3px;
+  border: 3px solid red;
+  height: 200px;
+}

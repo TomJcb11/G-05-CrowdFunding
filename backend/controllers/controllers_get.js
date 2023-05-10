@@ -42,15 +42,30 @@ const getAllOdd=(req,res) =>{
 };
 
 const getAllProjectFromOdd = (req, res) => {
-    const name = req.params.name
-
-    client.query('SELECT projets.*  ,nom_oddFROM projets join odd on odd_projet = id_odd WHERE nom_odd = $1', [name], (err, result) => {
+    const name = req.params.name;
+  
+    client.query(
+      'SELECT projets.*, statuts.nom_statut, odd.nom_odd ' +
+      'FROM projets ' +
+      'JOIN statuts ON projets.statut_projet = statuts.id_statut ' +
+      'JOIN odd ON projets.odd_projet = odd.id_odd ' +
+      'WHERE odd.nom_odd = $1',
+      [name],
+      (err, result) => {
         if (err) {
-            console.log(err);
+          console.log(err);
+          res.status(500).json({ error: 'Une erreur s\'est produite lors de la récupération des projets.' });
+        } else {
+          const projects = result.rows.map(row => ({
+            ...row,
+            statut: { nom_statut: row.nom_statut }
+          }));
+          res.status(200).json(projects);
         }
-        res.status(200).json(result.rows);
-    });
-};
+      }
+    );
+  };
+  
 
 
 const getAllProject=(req,res) =>{

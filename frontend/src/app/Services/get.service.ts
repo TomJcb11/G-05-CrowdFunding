@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { allProjects } from '../shared/models/allProjects_models';
-import { Odd } from '../shared/models/odd_model';
 import { oneProject } from '../shared/models/oneProjects_models';
 
 
