@@ -21,7 +21,7 @@ export class ProjetService {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
   updateProject(id: number, project: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/modify/${id}`, project);
+    return this.http.put<any>(`${this.apiUrl}/modify/${id}`, project);
   }
   
 }

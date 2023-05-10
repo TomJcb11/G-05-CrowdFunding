@@ -27,10 +27,18 @@ export class ModifyProjectComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
-    this.projectService.updateProject(this.project.id_projet, this.project).subscribe((response) => {
-      console.log(response);
-      this.router.navigate(['/my-project']); // Redirection après la soumission du formulaire
-    });
+  onSubmit() {
+    this.projectService.updateProject(this.project.id_projet, this.project).subscribe(
+      (response) => {
+        console.log('Response:', response);
+        setTimeout(() => {
+          this.router.navigate(['/my-projects']);
+        }, 1000);
+      },
+      (error) => {
+        console.error('Error:', error);
+      }
+    );
+    this.router.navigate(['/my-projects']);
   }
 }
