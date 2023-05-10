@@ -1,1 +1,18 @@
-<p>all-the-projects works!</p>
+<ul class="container">
+  <button class="container" *ngFor="let item of myData" (click)="print(item.nom_odd)">{{ item.nom_odd }}</button>
+</ul>
+
+<div>
+  <ul *ngFor="let project of projects" class="project">
+    <li id="li">
+      <button class="PrBtn {{ project.nom_statut === 'Terminé' ? 'finished' : project.nom_statut === 'Suspendu' ? 'suspended' : 'in-progress' }}"  (click)="filterByProjectName(project.nom_projet)">
+        <h1>{{project.nom_projet}}</h1>
+        <p>{{ project.description_projet }}</p>
+        <h3><b>Objectif: {{ project.objectif_projet }} €</b></h3>
+        <h3><b>Récolte: {{ project.recolte_projet }} €</b></h3>
+        <progress [value]="project.recolte_projet" [max]="project.objectif_projet"></progress>
+        <p class="status">{{ project.nom_statut }}</p>
+      </button>
+    </li>
+  </ul>
+</div>

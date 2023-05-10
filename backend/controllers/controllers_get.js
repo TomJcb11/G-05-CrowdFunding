@@ -42,9 +42,9 @@ const getAllOdd=(req,res) =>{
 };
 
 const getAllProjectFromOdd = (req, res) => {
-    const nomOdd = req.params.nomOdd;
+    const name = req.params.name
 
-    client.query('SELECT * FROM projets WHERE odd_projet = (SELECT id_odd FROM odd WHERE nom_odd = $1)', [nomOdd], (err, result) => {
+    client.query('SELECT projets.*  ,nom_oddFROM projets join odd on odd_projet = id_odd WHERE nom_odd = $1', [name], (err, result) => {
         if (err) {
             console.log(err);
         }
@@ -54,7 +54,7 @@ const getAllProjectFromOdd = (req, res) => {
 
 
 const getAllProject=(req,res) =>{
-    client.query('SELECT projets.*, statuts.nom_statut FROM projets JOIN statuts ON projets.statut_projet = statuts.id_statut ORDER BY projets.id_projet;', (error, result) => {
+    client.query('SELECT projets.*, statuts.nom_statut, odd.nom_odd FROM projets  JOIN statuts ON projets.statut_projet = statuts.id_statut  JOIN odd ON projets.id_projet = id_odd ORDER BY projets.id_projet;', (error, result) => {
       if (error) {
         throw error;
       }
@@ -67,9 +67,9 @@ const getAllProject=(req,res) =>{
 };
 
 const getOneProject = (req, res) => {
-    const id = parseInt(req.params.id);
+    const name = req.params.id;
 
-    client.query('   SELECT projets.*, statuts.nom_statut ,identifiant_utilisateur ,nom_odd from projets JOIN statuts ON projets.statut_projet = statuts.id_statut  join utilisateurs on utilisateurs.id_utilisateur=projets.admin_projet  JOIN odd on odd_projet = id_odd where  id_projet = $1', [id], (err, result) => {
+    client.query('SELECT id_projet,nom_projet,admin_projet,nom_utilisateur,statut_projet,nom_statut ,id_odd, nom_odd,description_projet,objectif_projet,recolte_projet FROM projets JOIN odd on id_projet = id_odd JOIN statuts on statut_projet = id_statut JOIN utilisateurs on admin_projet = id_utilisateur WHERE nom_projet = $1', [name], (err, result) => {
         if (err) {
             console.log(err);
         }

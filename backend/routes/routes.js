@@ -18,7 +18,7 @@ router.get('/api/users/:id', get.getOneUser);
 
 router.get('/api/odd',get.getAllOdd);
 
-router.get(':nomOdd',get.getAllProjectFromOdd);
+router.get('/api/odd/:name',get.getAllProjectFromOdd);
 
 router.get('/api/project',get.getAllProject)
 
