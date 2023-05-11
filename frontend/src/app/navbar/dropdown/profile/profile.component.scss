@@ -1,0 +1,57 @@
+.profile {
+  /* Styles pour le profil */
+
+  .profile-container {
+    /* Styles pour le conteneur du profil */
+
+    .profile-picture-container {
+      img.profile-picture {
+        height: 25vh; /* Réduit la hauteur de l'image à 25% de la hauteur de la page */
+      }
+    }
+
+    .profile-info-container {
+      /* Styles pour le conteneur des informations du profil */
+    }
+  }
+
+  .content {
+    /* Styles pour le contenu du profil */
+
+    .profile-details {
+      /* Styles pour le conteneur des détails du profil */
+
+      form {
+        /* Styles pour le formulaire */
+
+        .form-group {
+          /* Styles pour les groupes de formulaire */
+
+          label {
+            /* Styles pour les étiquettes des champs de formulaire */
+          }
+
+          input,
+          textarea,
+          select {
+            /* Styles pour les champs de formulaire */
+
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+          }
+        }
+
+        .toggle-password {
+          /* Styles pour le bouton d'affichage du mot de passe */
+        }
+
+        button[type="submit"] {
+          /* Styles pour le bouton d'envoi du formulaire */
+        }
+      }
+    }
+  }
+}

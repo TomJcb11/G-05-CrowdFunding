@@ -6,35 +6,43 @@
     height: 70px;
     padding: 0 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    
+
     .home {
       margin-right: auto;
     }
-  
+    a:link {
+      color: whitesmoke; /* Couleur avant la visite */
+    }
+
+    a:visited {
+      color: whitesmoke; /* Couleur après la visite */
+    }
+
+
     .menu {
       margin-left: auto;
     }
-  
+
     .search,
     .project,
     .menu {
       margin-left: 20px;
     }
-  
+
     .search {
       width: 300px;
     }
-  
+
     .project,
     .menu {
       display: flex;
       align-items: center;
     }
-  
+
     .project img {
       margin-right: 10px;
     }
-  
+
     .menu button {
       background-color: #006633;
       border: none;
@@ -44,10 +52,9 @@
       font-size: 16px;
       display: flex;
       align-items: center;
-  
+
       &:hover {
         background-color: #008040;
       }
     }
   }
-  

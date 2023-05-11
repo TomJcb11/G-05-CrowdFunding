@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -15,6 +16,9 @@ import { ProjetsComponent } from './projets/projets.component';
 import { AllTheProjectsComponent } from './projets/all-the-projects/all-the-projects.component';
 import { OneProjectBasedOnIdComponent } from './projets/one-project-based-on-id/one-project-based-on-id.component';
 import { OddProjetComponent } from './projets/odd-projet/odd-projet.component';
+import { ProfileComponent } from './navbar/dropdown/profile/profile.component';
+import { SettingsComponent } from './navbar/dropdown/settings/settings.component';
+import { LoginComponent } from './navbar/dropdown/login/login.component';
 
 
 
@@ -29,7 +33,11 @@ import { OddProjetComponent } from './projets/odd-projet/odd-projet.component';
     ProjetsComponent,
     AllTheProjectsComponent,
     OneProjectBasedOnIdComponent,
-    OddProjetComponent
+    OddProjetComponent,
+    ProfileComponent,
+    SettingsComponent,
+    LoginComponent,
+
 
 
 
@@ -37,7 +45,8 @@ import { OddProjetComponent } from './projets/odd-projet/odd-projet.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
 
 
   ],
