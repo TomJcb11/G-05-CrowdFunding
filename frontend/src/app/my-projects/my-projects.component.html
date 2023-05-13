@@ -11,9 +11,10 @@
       </svg>
       <div class="menu-container">
         <ul class="menu">
-          <li (click)="$event.stopPropagation()">
-            <a [routerLink]="['/my-projects/modify', project.id_projet]" >Modifier</a>
-          </li>
+          <li [routerLink]="['/my-project/modify/' + project.id_projet]">Modifier</li>
+          <!-- <li [routerLink]="['/my-projects/modify/project.id_projet]">
+            <a >Modifier</a>
+          </li> -->
           <li>
             <a (click)="onDeleteProject(i); $event.stopPropagation()">Supprimer</a>
           </li>

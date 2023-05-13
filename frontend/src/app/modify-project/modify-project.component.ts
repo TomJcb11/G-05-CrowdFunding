@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProjetService } from '../services/All_projects/all-projects.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-modify-project',
@@ -13,7 +14,8 @@ export class ModifyProjectComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private projectService: ProjetService,
-    private router: Router
+    private router: Router,
+    private changeDetectorRef: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -31,14 +33,13 @@ export class ModifyProjectComponent implements OnInit {
     this.projectService.updateProject(this.project.id_projet, this.project).subscribe(
       (response) => {
         console.log('Response:', response);
-        setTimeout(() => {
-          this.router.navigate(['/my-projects']);
-        }, 1000);
+        this.router.navigate(['/my-projects']);
+        this.changeDetectorRef.detectChanges(); // Ajoutez cette ligne
       },
       (error) => {
         console.error('Error:', error);
       }
     );
-    this.router.navigate(['/my-projects']);
   }
+  
 }

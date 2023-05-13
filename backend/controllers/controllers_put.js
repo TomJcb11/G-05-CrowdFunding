@@ -19,6 +19,7 @@ const updateOneProject = (req, res) => {
             if (err) {
                 console.log(err);
             }
+            console.log('Response:', { message: `Projet ID ${id} mis à jour` });
             res.status(200).json({ message: `Projet ID ${id} mis à jour` });
         }
     );
