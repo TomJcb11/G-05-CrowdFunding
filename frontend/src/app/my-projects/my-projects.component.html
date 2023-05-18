@@ -2,7 +2,7 @@
     <button *ngFor="let project of projects; index as i; trackBy:trackById" class="project">
     <!--<img src="{{project.projet_img}}" alt="{{project.nom_projet}}">-->
     <h3>{{project.nom_projet}}</h3>
-    <p>{{project.description_projet}}</p>
+    <p>Description: {{project.description_projet}}</p>
     <p>Amount: {{project.recolte_projet}} €</p>
     <p>Admin: <i>{{project.admin_projet}}</i></p>
     <div class="menu-icon" (click)="toggleMenu($event)">
