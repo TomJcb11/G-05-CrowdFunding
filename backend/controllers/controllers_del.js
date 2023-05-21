@@ -8,7 +8,7 @@ const client = new Client({
 });
 
 //test connection à la base de données
-client.connect(console.log('connexion réussie'));
+client.connect(console.log('del: connexion réussie'));
 
 const deleteOneProject = (req, res) => {
     const id = parseInt(req.params.id);

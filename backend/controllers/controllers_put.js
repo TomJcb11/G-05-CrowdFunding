@@ -8,7 +8,7 @@ const client = new Client({
 });
 
 //test connection à la base de données
-client.connect(console.log('connexion réussie'));
+client.connect(console.log('put: connexion réussie'));
 const updateOneProject = (req, res) => {
     const id = parseInt(req.params.id);
     const { nom_projet, description_projet, recolte_projet, admin_projet } = req.body;

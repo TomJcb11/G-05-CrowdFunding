@@ -8,7 +8,7 @@ const client = new Client({
 });
 
 //test connection à la base de données
-client.connect(console.log('connexion réussie'));
+client.connect(console.log('get: connexion réussie'));
 
 // récupération de tous les utilisateurs
 const getAllUsers = (req, res) => {
