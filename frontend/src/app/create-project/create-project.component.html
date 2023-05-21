@@ -1,7 +1,14 @@
-<form #projectForm="ngForm" (ngSubmit)="onSubmit()">
-    Donner un nom a votre projet: <input type="text" ngModel name="projectName"/><br>
-    Donner une description a votre projet: <input type="text" ngModel name="projectDescription"/><br>
-    De combien d'argent avez vous besoin de recolter: <input type="range" id="moneyValue" ngModel name="projectMoney" min="0" max="100"/><br>
-    <output for="moneyValue" id="displayValue">0</output><br>
+<form #projectForm="ngForm" (ngSubmit)="onSubmit()" ngNativeValidate>
+    <label>Project name :</label><input type="text" ngModel name="projectName" id="projectName" required/><br>
+    <label>Project Picture :</label><input type="file" ngModel name="projectPicture" accept="image/png, image/jpeg" id="projectPicture" (change)="onFileSelected($event)"/><br>
+    <div class="label-number-date-wrapper">
+        <label>Donation :</label><label>La fin du projet :</label>
+    </div>
+    <div class="number-date-wrapper">
+    <input type="number" id="moneyValue" ngModel name="projectMoney" min="0"  required/><br><input type="date" ngModel name="projectEndDate" id="projectEndDate" required/><br>
+    </div>
+    <br>
+    <label>Project Description :</label><textarea ngModel name="projectDescription" id="projectDescription" required></textarea><br>
+    <br>
     <input type="submit" value="Submit">
 </form>

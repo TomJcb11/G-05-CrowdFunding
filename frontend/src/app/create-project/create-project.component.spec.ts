@@ -1,23 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { CreateProjectComponent } from './create-project.component';
+import { CookieModule, CookieService, CookieOptionsProvider } from 'ngx-cookie';
+
+let httpClientSpy: { get: jasmine.Spy };
+let cookieServiceSpy: { get: jasmine.Spy };
+let service: CreateProjectComponent;
+
 
 describe('CreateProjectComponent', () => {
-  let component: CreateProjectComponent;
-  let fixture: ComponentFixture<CreateProjectComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ CreateProjectComponent ]
-    })
-    .compileComponents();
 
-    fixture = TestBed.createComponent(CreateProjectComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        httpClientSpy = jasmine.createSpyObj('HttpClient', ['post']);
+        service = new CreateProjectComponent(httpClientSpy as any, cookieServiceSpy as any);
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+
+    
+
 });

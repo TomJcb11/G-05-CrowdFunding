@@ -7,23 +7,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateProjectComponent } from './create-project/create-project.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { CookieModule } from 'ngx-cookie';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    CreateProjectComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavbarComponent,
+        CreateProjectComponent,
+        LoginComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        CookieModule.withOptions({
+            sameSite: 'lax'
+        })
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 
 export class AppModule {
