@@ -2,6 +2,9 @@
   <button class="container" *ngFor="let item of myData" (click)="redirectToOddProjects(item.nom_odd)">{{ item.nom_odd }}</button>
 </ul>
 
+<p class="note"> La présence de cette icone signifie que le projet recherche des benévoles
+  <svg class="svg" fill="#000000" width="40% " height="40 %" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M1.056 32h29.888q0-1.888-1.376-3.552t-3.808-2.88-5.504-1.696v-1.568q1.952-1.152 3.136-3.104t1.152-4.256v-0.224q0.928-0.32 1.536-1.12t0.608-1.856-0.608-1.856-1.536-1.12v-0.224q0-2.304-1.152-4.288t-3.104-3.104-4.288-1.152-4.288 1.152-3.104 3.104-1.152 4.288v0.224q-0.928 0.32-1.536 1.12t-0.576 1.856 0.576 1.856 1.536 1.12v0.224q0 2.304 1.184 4.256t3.104 3.104v1.568q-3.072 0.544-5.504 1.696t-3.808 2.88-1.376 3.552z"></path></svg>
+</p><br>
 <div>
   <ul *ngFor="let project of projects" class="project">
     <li id="li">
@@ -12,6 +15,31 @@
         <h3><b>Récolte: {{ project.recolte_projet }} €</b></h3>
         <progress [value]="project.recolte_projet" [max]="project.objectif_projet"></progress>
         <p class="status">{{ project.nom_statut }}</p>
+        <p *ngIf="project.benevole_projet !== false">
+          <svg class="svg" fill="#000000" width="40% " height="40 %" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M1.056 32h29.888q0-1.888-1.376-3.552t-3.808-2.88-5.504-1.696v-1.568q1.952-1.152 3.136-3.104t1.152-4.256v-0.224q0.928-0.32 1.536-1.12t0.608-1.856-0.608-1.856-1.536-1.12v-0.224q0-2.304-1.152-4.288t-3.104-3.104-4.288-1.152-4.288 1.152-3.104 3.104-1.152 4.288v0.224q-0.928 0.32-1.536 1.12t-0.576 1.856 0.576 1.856 1.536 1.12v0.224q0 2.304 1.184 4.256t3.104 3.104v1.568q-3.072 0.544-5.504 1.696t-3.808 2.88-1.376 3.552z"></path>
+          </svg>
+
+        <p *ngIf="project.nom_statut === 'in-progress'">
+          <svg height="64px" width="64px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 507.2 507.2" xml:space="preserve" fill="#000000">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier"> <circle style="fill:#32BA7C;" cx="253.6" cy="253.6" r="253.6"></circle>
+                <path style="fill:#0AA06E;" d="M188.8,368l130.4,130.4c108-28.8,188-127.2,188-244.8c0-2.4,0-4.8,0-7.2L404.8,152L188.8,368z"></path> <g>
+                  <path style="fill:#FFFFFF;" d="M260,310.4c11.2,11.2,11.2,30.4,0,41.6l-23.2,23.2c-11.2,11.2-30.4,11.2-41.6,0L93.6,272.8 c-11.2-11.2-11.2-30.4,0-41.6l23.2-23.2c11.2-11.2,30.4-11.2,41.6,0L260,310.4z"></path>
+                  <path style="fill:#FFFFFF;" d="M348.8,133.6c11.2-11.2,30.4-11.2,41.6,0l23.2,23.2c11.2,11.2,11.2,30.4,0,41.6l-176,175.2 c-11.2,11.2-30.4,11.2-41.6,0l-23.2-23.2c-11.2-11.2-11.2-30.4,0-41.6L348.8,133.6z"></path>
+              </g>
+            </g>
+          </svg>
+        </p>
+
+        <p *ngIf="project.nom_statut === 'suspended'">
+          <svg height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 507.2 507.2" xml:space="preserve" fill="#000000">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#d83f3f;" cx="253.6" cy="253.6" r="253.6"></circle> <path style="fill:#802020;" d="M188.8,368l130.4,130.4c108-28.8,188-127.2,188-244.8c0-2.4,0-4.8,0-7.2L404.8,152L188.8,368z"></path> <g> <path style="fill:#ffffff;" d="M260,310.4c11.2,11.2,11.2,30.4,0,41.6l-23.2,23.2c-11.2,11.2-30.4,11.2-41.6,0L93.6,272.8 c-11.2-11.2-11.2-30.4,0-41.6l23.2-23.2c11.2-11.2,30.4-11.2,41.6,0L260,310.4z"></path> <path style="fill:#ffffff;" d="M348.8,133.6c11.2-11.2,30.4-11.2,41.6,0l23.2,23.2c11.2,11.2,11.2,30.4,0,41.6l-176,175.2 c-11.2,11.2-30.4,11.2-41.6,0l-23.2-23.2c-11.2-11.2-11.2-30.4,0-41.6L348.8,133.6z"></path> </g> </g></svg>
+        </p>
+
+        <p *ngIf="project.nom_statut === 'finished'">
+          <svg height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 507.2 507.2" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#969696;" cx="253.6" cy="253.6" r="253.6"></circle> <path style="fill:#6b6b6b;" d="M188.8,368l130.4,130.4c108-28.8,188-127.2,188-244.8c0-2.4,0-4.8,0-7.2L404.8,152L188.8,368z"></path> <g> <path style="fill:#FFFFFF;" d="M260,310.4c11.2,11.2,11.2,30.4,0,41.6l-23.2,23.2c-11.2,11.2-30.4,11.2-41.6,0L93.6,272.8 c-11.2-11.2-11.2-30.4,0-41.6l23.2-23.2c11.2-11.2,30.4-11.2,41.6,0L260,310.4z"></path> <path style="fill:#FFFFFF;" d="M348.8,133.6c11.2-11.2,30.4-11.2,41.6,0l23.2,23.2c11.2,11.2,11.2,30.4,0,41.6l-176,175.2 c-11.2,11.2-30.4,11.2-41.6,0l-23.2-23.2c-11.2-11.2-11.2-30.4,0-41.6L348.8,133.6z"></path> </g> </g></svg>
+        </p>
       </button>
     </li>
   </ul>

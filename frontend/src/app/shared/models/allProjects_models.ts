@@ -1,4 +1,5 @@
 export interface allProjects{
+  benevole_projet: boolean;
   id_projet:number;
   nom_projet :string;
   description_projet: string;

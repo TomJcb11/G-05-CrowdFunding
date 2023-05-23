@@ -1,31 +1,31 @@
 .container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  padding: 20px;
 }
 
-.project {
-  padding: 20px;
-  border: 1px solid #ccc;
-  margin-bottom: 20px;
-  position: relative;
-
-  h1 {
-    font-size: 50px;
-    margin-bottom: 10px;
+.header {
+  flex: 1;
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: left;
+  margin-bottom: 10px;
+  h1{
+    margin-bottom: 30px;
   }
+  div{
+    font-weight: bolder;
+    margin-bottom: 20px;
+  }
+}
 
-  h2 {
-    font-size: 36px;
-    font-weight: bold;
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-bottom: 5px;
-
+.answer {
+  flex: 1;
+  background-color: #e1e1e1;
+  padding: 10px;
+  text-align: left;
+  margin-bottom: 10px;
+  h2{
+    text-align: right;
+    margin-bottom: 30px;
     &.suspended {
       color: red;
     }
@@ -38,34 +38,33 @@
       color: lightgreen;
     }
   }
-
-  progress {
-    width: 100%;
-    height: 20px;
-    margin-top: 10px;
-
-    &::-webkit-progress-value {
-      background-color: #4287f5;
-    }
-
-    &::-moz-progress-bar {
-      background-color: #4287f5;
-    }
-  }
-
-  p {
+  div{
+    font-weight: bold;
     margin-bottom: 20px;
   }
+}
 
-  .recolte {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+progress {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 7vh;
 
-    h3 {
-      font-size: 18px;
-      margin-right: 20px;
-    }
+  progress.suspended {
+    color: red;
+  }
+
+  progress.completed {
+    color: darkgray;
+  }
+
+  progress.in-progress {
+    color: lightgreen;
   }
 }
+
+.description{
+  display: flex;
+  background-color: #f1f1f1}

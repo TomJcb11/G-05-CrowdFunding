@@ -9,4 +9,5 @@ export interface oneProject{
   nom_statut:string;
   admin: string;
   odd_projet:string;
+  benevole_projet: boolean
 }
