@@ -38,7 +38,9 @@
   </div>
   <progress ngClass="getStatusClass(item.nom_statut)" [value]="item.recolte_projet" [max]="item.objectif_projet"></progress>
     <br><br>
-    <button class ></button>
+    <div class="divlink">
+      <a *ngIf="item.nom_statut === 'En cours'" class="link" routerLink="/project/{{item.nom_projet}}/donation">Faire un Don</a>
+    </div>
     <h2>Description: </h2><br>
     <p class="description">{{ item.description_projet }}</p>
   </div>

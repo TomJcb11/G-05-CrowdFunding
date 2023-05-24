@@ -6,10 +6,10 @@ import { AllTheProjectsComponent } from './projets/all-the-projects/all-the-proj
 import { OneProjectBasedOnIdComponent } from './projets/one-project-based-on-id/one-project-based-on-id.component';
 import { OddProjetComponent } from './projets/odd-projet/odd-projet.component';
 import { MyProjectComponent } from './navbar/my-project/my-project.component';
-import { DropdownComponent } from './navbar/dropdown/dropdown.component';
 import { ProfileComponent } from './navbar/dropdown/profile/profile.component';
 import { SettingsComponent } from './navbar/dropdown/settings/settings.component';
 import { LoginComponent } from './navbar/dropdown/login/login.component';
+import { DonationsComponent } from './projets/donations/donations.component';
 
 
 
@@ -22,7 +22,8 @@ const routes: Routes = [
     {path: 'settings', component: SettingsComponent },
     {path: 'login', component: LoginComponent },
     {path: 'project/:projectName' , component:OneProjectBasedOnIdComponent},
-    {path: 'odd/:oddName' , component:OddProjetComponent}
+    {path: 'odd/:oddName' , component:OddProjetComponent},
+    {path: 'project/:projectName/donation' , component:DonationsComponent}
 
 
 ];

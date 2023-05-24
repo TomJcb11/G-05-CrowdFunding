@@ -19,6 +19,7 @@ import { OddProjetComponent } from './projets/odd-projet/odd-projet.component';
 import { ProfileComponent } from './navbar/dropdown/profile/profile.component';
 import { SettingsComponent } from './navbar/dropdown/settings/settings.component';
 import { LoginComponent } from './navbar/dropdown/login/login.component';
+import { DonationsComponent } from './projets/donations/donations.component';
 
 
 
@@ -37,6 +38,7 @@ import { LoginComponent } from './navbar/dropdown/login/login.component';
     ProfileComponent,
     SettingsComponent,
     LoginComponent,
+    DonationsComponent,
 
 
 

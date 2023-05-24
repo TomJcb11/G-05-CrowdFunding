@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GetService } from 'src/app/Services/get.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-one-project-based-on-id',
@@ -42,6 +43,7 @@ export class OneProjectBasedOnIdComponent implements OnInit {
       return '';
     }
   }
+
 
 
 
