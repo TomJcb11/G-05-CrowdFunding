@@ -17,6 +17,14 @@ import { MyProjectPageComponent } from './my-project-page/my-project-page.compon
 import { ModifyProjectComponent } from './modify-project/modify-project.component';
 import { FormsModule } from '@angular/forms';
 import { ModifyProjectPageComponent } from './modify-project-page/modify-project-page.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ProjetsComponent } from './projets/projets.component';
+import { AllTheProjectsComponent } from './projets/all-the-projects/all-the-projects.component';
+import { OneProjectBasedOnIdComponent } from './projets/one-project-based-on-id/one-project-based-on-id.component';
+import { OddProjetComponent } from './projets/odd-projet/odd-projet.component';
+import { ProfileComponent } from './navbar/dropdown/profile/profile.component';
+import { SettingsComponent } from './navbar/dropdown/settings/settings.component';
+import { LoginComponent } from './navbar/dropdown/login/login.component';
 
 
 const appRoutes: Routes = [
@@ -24,6 +32,7 @@ const appRoutes: Routes = [
   { path: 'my-project', component: MyProjectPageComponent },
   { path: 'my-project/modify/:id', component: ModifyProjectPageComponent}
 ];
+
 
 @NgModule({
   declarations: [
@@ -38,7 +47,14 @@ const appRoutes: Routes = [
     MyProjectPageComponent,
     ModifyProjectComponent,
     ModifyProjectPageComponent,
-    
+    DropdownComponent,
+    ProjetsComponent,
+    AllTheProjectsComponent,
+    OneProjectBasedOnIdComponent,
+    OddProjetComponent,
+    ProfileComponent,
+    SettingsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +63,8 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatButtonModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
   ],
   exports:[RouterModule],
   providers: [],

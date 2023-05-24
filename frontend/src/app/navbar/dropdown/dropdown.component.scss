@@ -1,36 +1,38 @@
 .menu {
     button {
-      background-color: #006633;
-      color: #fff;
-       &:visited{
-        color: #fff
-    }
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      margin-right: 10px;
-    }
-  
-    ul {
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 10px;
-      position: absolute;
-      top: 40px;
-      right: 0;
-      z-index: 1;
-      list-style-type: none;
-  
-      li {
-        padding: 5px;
-        cursor: pointer;
-  
-        &:hover {
-          background-color: #eee;
+        display: flex;
+        background-color: #006633;
+        color: #fff;
+        &:visited {
+            color: #fff
         }
-      }
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-right: 10px;
     }
-  }
+    img {
+        height: 30px;
+        width: 30px;
+    }
+    ul {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        z-index: 1;
+        list-style-type: none;
+        li {
+            padding: 5px;
+            cursor: pointer;
+            &:hover {
+                background-color: #eee;
+            }
+        }
+    }
+}
