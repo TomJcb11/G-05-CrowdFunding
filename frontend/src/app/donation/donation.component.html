@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Donation</title>
+</head>
+<body>
+	<h1>Page de don</h1>
+	<p>Nombre de dons : {{count}} <span id="nombre_donateurs"></span></p>
+	<p>Somme totale des dons : {{recolte_projet}} € <span id="somme_dons"></span></p>
+	<form (ngSubmit)="onSubmit()">
+		<label for="montant_don">Montant du don :</label>
+		<input type="number" name="montant_don" [(ngModel)]="montant_don">
+		<span>! Attention, la seule devise supportée est l'Euro !</span><br><br>
+		<label for="message_don">Message lié au don :</label>
+		<input type="text" name="message_don" [(ngModel)]="message_don">
+		<select id="payment-select" [(ngModel)]="mode_paiement" name="mode_paiement">
+			<option value="Bancontact">Bancontact</option>
+			<option value="Paypal">Paypal</option>
+			<option value="Virement">Virement</option>
+			<option value="video watching">Video watching</option>
+		</select>		
+		<input type="submit" value="Faire un don">
+	</form>
+</body>
+</html>
