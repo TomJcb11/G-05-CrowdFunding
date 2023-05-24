@@ -1,0 +1,30 @@
+<div class="project-container">
+    <button *ngFor="let project of projects; index as i; trackBy:trackById" class="project">
+    <!--<img src="{{project.projet_img}}" alt="{{project.nom_projet}}">-->
+    <h3>{{project.nom_projet}}</h3>
+    <p>Description: {{project.description_projet}}</p>
+    <p>Amount: {{project.recolte_projet}} €</p>
+    <p>Admin: <i>{{project.admin_projet}}</i></p>
+    <div class="menu-icon" (click)="toggleMenu($event)">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path fill="currentColor" d="M5 12c0 1.105.895 2 2 2s2-.895 2-2-.895-2-2-2-2 .895-2 2zm7 0c0 1.105.895 2 2 2s2-.895 2-2-.895-2-2-2-2 .895-2 2zm7 0c0 1.105.895 2 2 2s2-.895 2-2-.895-2-2-2-2 .895-2 2z"></path>
+      </svg>
+      <div class="menu-container">
+        <ul class="menu">
+          <li [routerLink]="['/my-project/modify/' + project.id_projet]">Modifier</li>
+          <!-- <li [routerLink]="['/my-projects/modify/project.id_projet]">
+            <a >Modifier</a>
+          </li> -->
+          <li>
+            <a (click)="onDeleteProject(i); $event.stopPropagation()">Supprimer</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </button>
+  <a href="http://localhost:4200/new-project" target="_blank">
+    <div class="button-container">
+      <div class="plus-sign">+</div>
+    </div>
+  </a>
+</div>

@@ -1,3 +1,13 @@
+@import '~@angular/material/prebuilt-themes/purple-green.css';
+
+// Ajoutez ce sélecteur pour cibler .cdk-overlay-pane et appliquer les styles
+.cdk-overlay-pane {
+    .mat-dialog-container {
+      border-radius: 13px !important;
+      overflow: hidden; // Cache les coins noirs en masquant le contenu débordant
+    }
+  }
+  
 /* You can add global styles to this file, and also import other style files */
 * {
     margin: 0;
@@ -9,3 +19,5 @@
 body{
     font-family: 'Poppins', sans-serif;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

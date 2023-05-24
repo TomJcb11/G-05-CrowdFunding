@@ -1,0 +1,101 @@
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 95%;
+}
+
+.project {
+    background-color: #c8e6c9;
+    border: 4px solid #66bb6a;
+    border-radius: 13px;
+    padding: 17px;
+    margin: 10px;
+    flex-basis: calc(25% - 20px);
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+}
+
+.menu-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.project:hover {
+    transform: scale(1.07);
+}
+
+.project {
+    position: relative;
+}
+
+.menu-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.menu-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2px;
+    z-index: 1;
+    border-radius: 13px;
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a {
+    display: block;
+    padding: 4px 8px;
+    text-decoration: none;
+    color: #333;
+}
+
+.menu li a:hover {
+    background-color: #1a5623;
+    color: #fff;
+    border-radius: 13px;
+}
+
+.menu-container.show {
+    display: block;
+}
+.button-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #c8e6c9;
+    border: 4px solid #66bb6a;
+    border-radius: 13px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .plus-sign {
+    font-size: 24px;
+    color: black;
+  }
