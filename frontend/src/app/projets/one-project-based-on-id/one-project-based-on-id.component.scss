@@ -27,15 +27,15 @@
     text-align: right;
     margin-bottom: 30px;
     &.suspended {
-      color: red;
+      color: #a30000;
     }
 
     &.completed {
-      color: darkgray;
+      color: #6b6b6b;
     }
 
     &.in-progress {
-      color: lightgreen;
+      color: #006633;
     }
   }
   div{
@@ -61,7 +61,7 @@ progress {
   }
 
   progress.in-progress {
-    color: lightgreen;
+    color: #006633;
   }
 }
 

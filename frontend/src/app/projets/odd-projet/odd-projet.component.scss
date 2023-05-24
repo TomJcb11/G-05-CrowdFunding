@@ -1,42 +1,80 @@
+.container {
+  display: flex;
+  display: inline;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-right: 4px;
+  margin-left: 3px;
+  border-bottom: 1px green;
+
+  button {
+    color: black;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 2px solid green;
+    border-radius: 10px;
+
+
+    &:hover {
+      background-color: lightgreen;
+      transform: scale(1.10)
+    }
+  }
+}
+
 h1 {
   margin-left: 10%;
   width: 70%;
-  border: 2px solid darkgreen;
+  border: 2px solid #006633;
   padding: 10px;
   color: white;
-  background-color: darkgreen;
+  background-color: #006633;
   border-radius: 45%;
   text-align:center
 }
-
-h2 {
-  color: black;
-  font-size: 36px;
-  margin-bottom: 5px;
-}
-button {
-  color: black;
-  padding: 5px 10px;
-  cursor: pointer;
-  border: 2px solid green;
-  border-radius: 10px;
-
-  &:hover {
-    background-color: lightgreen;
-    transform: scale(1.1);
-  }
+.note {
+  position: relative;
+  display: flex;
+  background-color: #fff9c4;
+  padding: 5px;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.project {
+.note svg {
+  margin-left: 10px;
+  border: 1px solid #000000;
+  padding: 2px;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.note::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #fff9c4;
+  border-left: 5px solid transparent;
+}
+
+.project{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   list-style-type: none;
   display: inline-flex;
 }
-
 .project button {
-  display: flex;
+  display: inline-flexbox;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -46,7 +84,7 @@ button {
   padding: 15px;
   margin-bottom: 10px;
   margin-right: 4px;
-  margin-left: 15px;
+  margin-left:  15px;
   flex-basis: calc(25% - 20px);
 
   cursor: pointer;
@@ -57,100 +95,71 @@ button {
   transform: scale(1.05);
 }
 
+.project button svg {
+  width: 20%;
+  height: 20%;
+  margin-bottom: 10px;
+}
+
 .finished:not(.suspended):not(.in-progress) {
-  border: 2px solid grey;
-  background-color: darkgrey;
+  border: 4px solid #6b6b6b;
 }
 
 .suspended:not(.finished):not(.in-progress) {
-  border: 2px solid rgba(128, 32, 32, 0.664);
-  background-color: rgba(216, 63, 63, 0.459);
+  border: 4px   solid #a30000;
+
+
 }
 
 .in-progress:not(.finished):not(.suspended) {
-  border: 2px solid #66bb6a;
-  background-color: #c8e6c9;
+  border: 4px solid #006633;
+
 }
 
-.status {
+.status{
   font-size: x-large;
-  font-weight: bold;
+  font-weight: bold
+  ;
 }
 
-.oneProject {
+
+.oneProject{
   display: flex;
-  border-width: 3px;
+  border-width: 3px ;
   border: 3px solid red;
   height: 200px;
 }
 
 
-button {
-  color: black;
-  padding: 5px 10px;
-  cursor: pointer;
-  border: 2px solid green;
-  border-radius: 10px;
-
-  &:hover {
-    background-color: lightgreen;
-    transform: scale(1.1);
-  }
-}
-
-.project {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  list-style-type: none;
-  display: inline-flex;
-}
-
-.project button {
+.flex-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 13px;
-  width: 300px;
-  height: 200px;
-  padding: 15px;
-  margin-bottom: 10px;
-  margin-right: 4px;
-  margin-left: 15px;
-  flex-basis: calc(25% - 20px);
 
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-}
+  .statusColor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.project button:hover {
-  transform: scale(1.05);
-}
+    .color {
+      display: flex;
+      align-items: left;
+      justify-content: left;
 
-.finished:not(.suspended):not(.in-progress) {
-  border: 2px solid grey;
-  background-color: darkgrey;
-}
+      svg {
+        width: 60px;
+        height: 50px;
+      }
+    }
+  }
 
-.suspended:not(.finished):not(.in-progress) {
-  border: 2px solid rgba(128, 32, 32, 0.664);
-  background-color: rgba(216, 63, 63, 0.459);
-}
+  .volunteer {
+    display: flex;
+    align-items: right;
+    justify-content: right;
 
-.in-progress:not(.finished):not(.suspended) {
-  border: 2px solid #66bb6a;
-  background-color: #c8e6c9;
-}
-
-.status {
-  font-size: x-large;
-  font-weight: bold;
-}
-
-.oneProject {
-  display: flex;
-  border-width: 3px;
-  border: 3px solid red;
-  height: 200px;
+    svg {
+      width: 60px;
+      height: 50px;
+    }
+  }
 }
