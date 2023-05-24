@@ -5,19 +5,19 @@ import { RouterOutlet } from '@angular/router';
 import { AllTheProjectsComponent } from './projets/all-the-projects/all-the-projects.component';
 import { OneProjectBasedOnIdComponent } from './projets/one-project-based-on-id/one-project-based-on-id.component';
 import { OddProjetComponent } from './projets/odd-projet/odd-projet.component';
-import { MyProjectComponent } from './navbar/my-project/my-project.component';
+import { MyProjectBComponent } from './navbar/my-project-b/my-project-b.component';
 import { DropdownComponent } from './navbar/dropdown/dropdown.component';
 import { ProfileComponent } from './navbar/dropdown/profile/profile.component';
 import { SettingsComponent } from './navbar/dropdown/settings/settings.component';
 import { LoginComponent } from './navbar/dropdown/login/login.component';
-
+import { MyProjectPageComponent } from './my-project-page/my-project-page.component';
 
 
 const routes: Routes = [
     //{ path: 'createproject', component: CreateProjectComponent, canActivate: [AuthGuard]},
     //{ path: 'login', component: LoginComponent},
     {path: '',component:AllTheProjectsComponent},
-    {path: 'my-project', component: MyProjectComponent },
+    {path: 'my-project', component: MyProjectPageComponent },
     {path: 'profile', component: ProfileComponent },
     {path: 'settings', component: SettingsComponent },
     {path: 'login', component: LoginComponent },

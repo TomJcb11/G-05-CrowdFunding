@@ -20,13 +20,13 @@ router.get('/api/projects/:id', get.getOneProject);
 router.delete('/api/projects/:id', del.deleteOneProject);
 router.put('/api/projects/modify/:id', put.updateOneProject);
 
-router.get('/api/odd',get.getAllOdd);
+router.get('/api/odd', get.getAllOdd);
 
-router.get('/api/odd/:name',get.getAllProjectFromOdd);
+router.get('/api/odd/:name', get.getAllProjectFromOdd);
 
-router.get('/api/project',get.getAllProject)
 
-router.get('/api/project/:id',get.getOneProject)
+
+router.get('/api/project/:id', get.getOneProject)
 
 // exportation des routes
 module.exports = router;
