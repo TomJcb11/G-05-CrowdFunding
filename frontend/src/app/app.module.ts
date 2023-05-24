@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './navbar/home/home.component';
-import { SearchComponent } from './navbar/search/search.component';
 import { MyProjectBComponent } from './navbar/my-project-b/my-project-b.component';
 import { DropdownComponent } from './navbar/dropdown/dropdown.component';
 import { MyProjectsComponent } from './my-projects/my-projects.component';
@@ -39,7 +38,6 @@ const appRoutes: Routes = [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    SearchComponent,
     MyProjectBComponent,
     DropdownComponent,
     MyProjectsComponent,
