@@ -1,0 +1,41 @@
+<ul class="container">
+    <button class="container" *ngFor="let item of myData" (click)="redirectToOddProjects(item.nom_odd)">{{ item.nom_odd }}</button>
+</ul>
+
+<p class="note"> La présence de cette icone signifie que le projet recherche des benévoles
+    <svg class="svg" fill="#000000" width="40% " height="40 %" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M1.056 32h29.888q0-1.888-1.376-3.552t-3.808-2.88-5.504-1.696v-1.568q1.952-1.152 3.136-3.104t1.152-4.256v-0.224q0.928-0.32 1.536-1.12t0.608-1.856-0.608-1.856-1.536-1.12v-0.224q0-2.304-1.152-4.288t-3.104-3.104-4.288-1.152-4.288 1.152-3.104 3.104-1.152 4.288v0.224q-0.928 0.32-1.536 1.12t-0.576 1.856 0.576 1.856 1.536 1.12v0.224q0 2.304 1.184 4.256t3.104 3.104v1.568q-3.072 0.544-5.504 1.696t-3.808 2.88-1.376 3.552z"></path></svg>
+</p><br>
+<div>
+    <ul *ngFor="let project of projects" class="project">
+        <li id="li">
+            <button class="PrBtn {{ project.nom_statut === 'Terminé' ? 'finished' : project.nom_statut === 'Suspendu' ? 'suspended' : 'in-progress' }}" (click)="redirectToFilteredPage(project.nom_projet)">
+          <h1>{{project.nom_projet}}</h1>
+          <h3><b>Objectif: {{ project.objectif_projet }} €</b></h3>
+          <h3><b>Récolte: {{ project.recolte_projet }} €</b></h3>
+          <progress [value]="project.recolte_projet" [max]="project.objectif_projet"></progress>
+          <p class="status">{{ project.nom_statut }}</p>
+          <div class="flex-container">
+            <div class="statusColor">
+              <p class="color" *ngIf="project.nom_statut === 'En cours'">
+                <svg width="100px" height="100px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#d01616" stroke-width="0.192"></g><g id="SVGRepo_iconCarrier"> <g id="style=linear"> <g id="check-circle"> <circle id="vector" cx="12" cy="12" r="10" stroke="#006633" stroke-width="1.32"></circle> <path id="vector_2" d="M8 12.1667L9.95956 14.1262C10.3501 14.5167 10.9832 14.5168 11.3738 14.1262L16 9.5" stroke="#006633" stroke-width="1.32" stroke-linecap="round"></path> </g> </g> </g></svg>
+              </p>
+  
+              <p class="color" *ngIf="project.nom_statut === 'Suspendu'">
+                <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="style=linear"> <g id="close-circle"> <circle id="vector" cx="12" cy="12" r="10" stroke="#a30000" stroke-width="1.5"></circle> <path id="vector_2" d="M9 9L14.9999 15" stroke="#a30000" stroke-width="1.5" stroke-linecap="round"></path> <path id="vector_3" d="M15 9L9 14.9999" stroke="#a30000" stroke-width="1.5" stroke-linecap="round"></path> </g> </g> </g>
+                </svg>
+              </p>
+  
+              <p class="color" *ngIf="project.nom_statut === 'Terminé'">
+                <svg width="100px" height="100px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="style=linear"> <g id="lock-circle"> <path id="vector" d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8" stroke="#6b6b6b" stroke-width="1.3679999999999999" stroke-linecap="round" stroke-linejoin="round"></path> <path id="vector_2" d="M2 13C2 10.2386 4.23858 8 7 8H17C19.7614 8 22 10.2386 22 13V17C22 19.7614 19.7614 22 17 22H7C4.23858 22 2 19.7614 2 17V13Z" stroke="#6b6b6b" stroke-width="1.3679999999999999"></path> <circle id="vector_3" cx="12" cy="15" r="2" stroke="#6b6b6b" stroke-width="1.3679999999999999"></circle> </g> </g> </g>
+                </svg>
+              </p>
+  
+              <p class="volunteer" *ngIf="project.benevole_projet !== false">
+                <svg class="svg" fill="#000000" width="40% " height="40 %" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M1.056 32h29.888q0-1.888-1.376-3.552t-3.808-2.88-5.504-1.696v-1.568q1.952-1.152 3.136-3.104t1.152-4.256v-0.224q0.928-0.32 1.536-1.12t0.608-1.856-0.608-1.856-1.536-1.12v-0.224q0-2.304-1.152-4.288t-3.104-3.104-4.288-1.152-4.288 1.152-3.104 3.104-1.152 4.288v0.224q-0.928 0.32-1.536 1.12t-0.576 1.856 0.576 1.856 1.536 1.12v0.224q0 2.304 1.184 4.256t3.104 3.104v1.568q-3.072 0.544-5.504 1.696t-3.808 2.88-1.376 3.552z"></path>
+                </svg>
+            </div>
+          </div>
+        </button>
+        </li>
+    </ul>
+</div>

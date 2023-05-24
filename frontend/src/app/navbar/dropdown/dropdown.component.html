@@ -1,8 +1,10 @@
 <div class="menu">
-    <button (click)="toggleOptions()">Options</button>
+    <button (click)="toggleOptions()">
+      <img src="30.png">
+  </button>
     <ul *ngIf="showOptions">
-      <li><a href="/profile">Profil </a></li>
-      <li><a href="/settings">Paramètres </a></li>
-      <li><a href="/logout">Déconnecter </a></li>
+        <li><a routerLink="/profile">Profil</a></li>
+        <li><a routerLink="/settings">Paramètres</a></li>
+        <li><a routerLink="/login">Déconnecter</a></li>
     </ul>
-  </div>
+</div>

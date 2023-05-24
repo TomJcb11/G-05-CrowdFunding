@@ -1,0 +1,44 @@
+<div *ngFor="let item of filteredData">
+    <div class="container">
+        <div class="header">
+            <h1 class="project-name">{{ item.nom_projet }}</h1>
+            <div>Recherche de bénévoles :</div>
+            <div>Fondateur et administrateur du projet:</div>
+            <div>ODD liée:</div>
+            <div>Objectif de la récolte:</div>
+            <div>{{ item.objectif_projet }}</div>
+        </div>
+
+        <div class="answer">
+            <h2 [ngClass]="getStatusClass(item.nom_statut)">{{ item.nom_statut }}</h2>
+            <div>
+                <svg *ngIf="item.benevole_projet !== false" class="svg-green" height="32px" width="32px" viewBox="0 0 507.2 507.2" fill="#32BA7C">
+          <g>
+            <circle cx="253.6" cy="253.6" r="253.6"></circle>
+            <path d="M188.8,368l130.4,130.4c108-28.8,188-127.2,188-244.8c0-2.4,0-4.8,0-7.2L404.8,152L188.8,368z"></path>
+            <g>
+              <path d="M260,310.4c11.2,11.2,11.2,30.4,0,41.6l-23.2,23.2c-11.2,11.2-30.4,11.2-41.6,0L93.6,272.8c-11.2-11.2-11.2-30.4,0-41.6l23.2-23.2c11.2-11.2,30.4-11.2,41.6,0L260,310.4z"></path>
+              <path d="M348.8,133.6c11.2-11.2,30.4-11.2,41.6,0l23.2,23.2c11.2,11.2,11.2,30.4,0,41.6l-176,175.2c-11.2,11.2-30.4,11.2-41.6,0l-23.2-23.2c-11.2-11.2-11.2-30.4,0-41.6L348.8,133.6z"></path>
+            </g>
+          </g>
+        </svg>
+                <svg *ngIf="item.benevole_projet === false" class="svg-red" height="32px" width="32px" viewBox="0 0 297 297" fill="#C0392B">
+          <g>
+            <circle cx="148.5" cy="148.5" r="148.5"></circle>
+            <path d="M223.53,86.581L85.344,222.292l74.293,74.293c73.135-5.423,131.525-63.813,136.948-136.948L223.53,86.581z"></path>
+            <polygon points="231.823,94.875 202.125,65.177 148.5,118.802 94.875,65.177 65.177,94.875 118.802,148.5 65.177,202.125 94.875,231.823 148.5,178.198 202.125,231.823 231.823,202.125 178.198,148.5"></polygon>
+          </g>
+        </svg>
+            </div>
+            <div>{{ item.prenom_utilisateur + ' ' + item.nom_utilisateur }}</div>
+            <div>{{ item.nom_odd }}</div>
+            <div>Etat de la récolte:</div>
+            <div>{{ item.recolte_projet }}</div>
+        </div>
+    </div>
+    <progress ngClass="getStatusClass(item.nom_statut)" [value]="item.recolte_projet" [max]="item.objectif_projet"></progress>
+    <br><br>
+    <button class></button>
+    <h2>Description: </h2><br>
+    <p class="description">{{ item.description_projet }}</p>
+</div>
