@@ -123,6 +123,7 @@
             align-items: left;
             justify-content: left;
             svg {
+                display: flex;
                 width: 60px;
                 height: 50px;
             }
@@ -133,6 +134,7 @@
         align-items: right;
         justify-content: right;
         svg {
+            display: flex;
             width: 60px;
             height: 50px;
         }

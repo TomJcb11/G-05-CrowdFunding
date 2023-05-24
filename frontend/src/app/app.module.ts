@@ -24,6 +24,7 @@ import { AllTheProjectsComponent } from './projects/all-the-projects/all-the-pro
 import { OddProjectComponent } from './projects/odd-project/odd-project.component';
 import { OneProjectBasedOnIdComponent } from './projects/one-project-based-on-id/one-project-based-on-id.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { DonationsComponent } from './projects/donations/donations.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { ProjectsComponent } from './projects/projects.component';
     AllTheProjectsComponent,
     OddProjectComponent,
     OneProjectBasedOnIdComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    DonationsComponent
     
   ],
   imports: [
