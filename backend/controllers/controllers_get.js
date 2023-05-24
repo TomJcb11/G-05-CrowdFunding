@@ -11,14 +11,13 @@ const client = new Client({
 client.connect(console.log('get: connexion réussie'));
 
 // récupération de tous les utilisateurs
-const getAllUsers = (req, res) => {
-
-    client.query('SELECT * FROM utilisateurs', (err, result) => {
-        if (err) {
-            console.log(err);
-        }
+const getAllUsers = async(req, res) => {
+    try {
+        const result = await db.query('SELECT * FROM users');
         res.status(200).json(result.rows);
-    });
+    } catch (error) {
+        res.status(500).json({ error: 'Database error' });
+    }
 };
 
 const getOneUser = (req, res) => {

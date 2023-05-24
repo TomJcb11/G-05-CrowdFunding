@@ -7,7 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class ProjetService {
 
-  private apiUrl = 'http://localhost:8080/api/projects';
+  private _apiUrl = 'http://localhost:8080/api/projects';
+
+  get apiUrl() {
+    return this._apiUrl;
+  }
 
   constructor(private http: HttpClient) { }
 

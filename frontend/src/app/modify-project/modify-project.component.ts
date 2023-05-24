@@ -9,7 +9,7 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrls: ['./modify-project.component.scss'],
 })
 export class ModifyProjectComponent implements OnInit {
-  project: any;
+  project: any = {};
 
   constructor(
     private route: ActivatedRoute,
@@ -34,12 +34,11 @@ export class ModifyProjectComponent implements OnInit {
       (response) => {
         console.log('Response:', response);
         this.router.navigate(['/my-projects']);
-        this.changeDetectorRef.detectChanges(); // Ajoutez cette ligne
+        this.changeDetectorRef.detectChanges();
       },
       (error) => {
         console.error('Error:', error);
       }
     );
   }
-  
 }
