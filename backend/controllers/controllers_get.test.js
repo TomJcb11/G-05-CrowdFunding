@@ -25,13 +25,12 @@ describe('getAllUsers', () => {
     test('returns all users', async() => {
         const users = [{ id: 1, name: 'Test User 1' }, { id: 2, name: 'Test User 2' }];
 
-        // Nous utilisons notre mock de query ici
         mockClient.query.mockResolvedValueOnce({ rows: users });
 
         const req = {};
         const res = {
             status: jest.fn().mockReturnThis(),
-            json: jest.fn(),
+            json: jest.fn(), // Utilisation de jest.fn() pour créer un mock de res.json
         };
 
         await getAllUsers(req, res);
@@ -39,6 +38,7 @@ describe('getAllUsers', () => {
         expect(res.status).toHaveBeenCalledWith(200);
         expect(res.json).toHaveBeenCalledWith(users);
     });
+
 
     test('handles errors', async() => {
         mockClient.query.mockRejectedValueOnce(new Error('Database error'));
