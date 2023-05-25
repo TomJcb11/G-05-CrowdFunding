@@ -1,7 +1,5 @@
-<div class="menu">
-  <button (click)="toggleOptions()">
-    <img src="../../../assets/user.svg">
-  </button>
+<div class="menu" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+  <img src="../../../assets/user.svg">
   <ul *ngIf="showOptions">
     <li><a routerLink="/profile">Profil</a></li>
     <li><a routerLink="/settings">Paramètres</a></li>

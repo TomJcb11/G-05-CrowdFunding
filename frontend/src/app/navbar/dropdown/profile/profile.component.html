@@ -20,10 +20,10 @@
 
           <div class="form-group">
             <label for="password">Mot de passe:</label>
-            <input type="{{ showPassword ? 'text' : 'password' }}" id="password" name="password" [(ngModel)]="password">
+            <input type="{{ showPassword ? 'text' : 'password' }}" id="password" name="password" [(ngModel)]="password" name="password">
             <label for="showPassword">
               Afficher le mot de passe
-              <input type="checkbox" id="showPassword" [(ngModel)]="showPassword">
+              <input type="checkbox" id="showPassword" [(ngModel)]="showPassword" name="showPassword">
             </label>
           </div>
 

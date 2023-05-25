@@ -1,25 +1,26 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
+export class NavbarComponent implements AfterViewInit {
+  @ViewChild('profileBtn', { static: false }) profileBtn!: ElementRef<HTMLButtonElement>;
+  @ViewChild(DropdownComponent, { static: false }) dropdown!: DropdownComponent;
 
-export class NavbarComponent {
+  ngAfterViewInit() {
+    if (this.profileBtn && this.profileBtn.nativeElement && this.dropdown) {
+      this.profileBtn.nativeElement.addEventListener('click', () => {
+        if (this.dropdown.showOptions) {
+          this.dropdown.toggleOptions();
+        }
+      });
+    }
+  }
 
-  constructor(private el: ElementRef) {}
-
-  ngOnInit() {
-    const profileBtn = this.el.nativeElement.querySelector('.profile');
-    const dropdown = this.el.nativeElement.querySelector('#dropdown-menu');
-
-    profileBtn.addEventListener('click', () => {
-      if(dropdown.className === 'shown-dropdown') {
-        dropdown.className = 'hidden-dropdown';
-      }else{
-        dropdown.className = 'shown-dropdown';
-      }
-    });
+  toggleDropdown() {
+    this.dropdown.toggleOptions();
   }
 }
