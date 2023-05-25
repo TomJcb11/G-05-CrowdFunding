@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie';
 
-let bytes: any;
+let bytes: string | ArrayBuffer | null = null;
 
 @Component({
     selector: 'app-create-project',
@@ -32,20 +32,32 @@ export class CreateProjectComponent implements OnInit{
   }
 
   onSubmit(){
-      const values = {
-          name_project: this.projectForm.value.projectName,
-          owner_project: this.cookieService.get('id'),
-          description_project: this.projectForm.value.projectDescription,
-          status_project: 1,
-          goal_money: this.projectForm.value.projectMoney,
-          project_picture: bytes,
-          end_date: this.projectForm.value.projectDate,
-          searching_workers: this.projectForm.value.projectWorkers
-      };
-      if (values.goal_money == '') {
-          values.goal_money = 0;
+      const projectName = this.projectForm.value.projectName;
+      const ownerProject = this.cookieService.get('id');
+      const projectDescription = this.projectForm.value.projectDescription;
+      const goalMoney = this.projectForm.value.projectMoney;
+      const projectPicture = bytes;
+      const endDate = this.projectForm.value.projectEndDate;
+      const searchingWorkers = false;
+    
+      if (projectName && ownerProject && projectDescription && goalMoney && endDate) {
+          const values = {
+              name_project: projectName,
+              owner_project: ownerProject,
+              description_project: projectDescription,
+              status_project: 1,
+              goal_money: goalMoney,
+              project_picture: projectPicture,
+              end_date: endDate,
+              searching_workers: searchingWorkers
+                
+          };
+          if (values.goal_money == '') {
+              values.goal_money = 0;
+          }
+          this.http.post('http://localhost:8080/api/projects', values).subscribe();
+      }else{
+          throw new Error('Missing fields');
       }
-      this.http.post('http://localhost:8080/api/projects', values).subscribe();
   }
-
 }

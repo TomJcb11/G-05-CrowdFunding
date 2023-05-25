@@ -4,6 +4,7 @@ const route = require("./routes/routes");
 const cors = require("cors");
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
+const components = require("./swagger.js");
 
 // Create express app
 const app = express();
@@ -12,8 +13,10 @@ const swaggerOptions = {
 	swaggerDefinition: {
 		info:{
 			title: "API",
-			version: "1.0.0"
-		}
+			version: "1.0.0",
+			servers: ["http://localhost:8080;"]
+		},
+		components: components
 	},
 	apis: ["index.js", "./routes/*.js"]
 };
