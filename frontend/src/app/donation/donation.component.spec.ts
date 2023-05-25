@@ -32,7 +32,7 @@ describe('DonationComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [ DonationComponent ],
-      imports: [ FormsModule ],
+      imports: [ FormsModule, MatDialogModule],
       providers: [
         { provide: DonationService, useValue: donationServiceSpy },
         { provide: MatDialog, useValue: dialogStub },
@@ -47,11 +47,14 @@ describe('DonationComponent', () => {
     donationService = TestBed.inject(DonationService) as jasmine.SpyObj<DonationService>;
     router = TestBed.inject(Router) as jasmine.SpyObj<Router>;
   });
-
+  
   beforeEach(() => {
     donationService.getStats.and.returnValue(of({count: 5, recolte_projet: 500}));
     fixture.detectChanges();
+
   });
+
+  // UNIT TEST
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -75,6 +78,33 @@ describe('DonationComponent', () => {
     expect(component.message_don).toBe('');
     expect(component.mode_paiement).toBe('Bancontact');
   });
-});
 
+  it('should call submitDonation on form submit and reset the form when response.status is not 200', () => {
+    donationService.submitDonation.and.returnValue(of({status: 400}));
+    component.montant_don = 100;
+    component.message_don = 'Great work!';
+    component.mode_paiement = 'Paypal';
+    component.onSubmit();
+  
+    expect(donationService.submitDonation).toHaveBeenCalledWith(1, 3, {montant_don: 100, message_don: 'Great work!', mode_paiement: 'Paypal'});
+    expect(component.montant_don).toBe(0);
+    expect(component.message_don).toBe('');
+    expect(component.mode_paiement).toBe('Bancontact');
+  });
+
+  it('should call getStats to refresh the stats after form submit', () => {
+    donationService.submitDonation.and.returnValue(of({status: 200}));
+    donationService.getStats.and.returnValue(of({count: 10, recolte_projet: 1000}));
+  
+    component.montant_don = 100;
+    component.message_don = 'Great work!';
+    component.mode_paiement = 'Paypal';
+    component.onSubmit();
+  
+    expect(donationService.submitDonation).toHaveBeenCalledWith(1, 3, {montant_don: 100, message_don: 'Great work!', mode_paiement: 'Paypal'});
+    expect(donationService.getStats).toHaveBeenCalledTimes(2);
+    expect(component.count).toBe(10);
+    expect(component.recolte_projet).toBe(1000);
+  });  
+});
 
