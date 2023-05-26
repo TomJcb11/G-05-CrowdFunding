@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Donation</title>
-</head>
-<body>
-	<h1>Page de don</h1>
+<h1>Page de don</h1>
 	<p>Nombre de dons : {{count}} <span id="nombre_donateurs"></span></p>
 	<p>Somme totale des dons : {{recolte_projet}} € <span id="somme_dons"></span></p>
 	<form (ngSubmit)="onSubmit()">
@@ -17,8 +11,6 @@
 			<option value="Bancontact">Bancontact</option>
 			<option value="Paypal">Paypal</option>
 			<option value="Virement">Virement</option>
-		</select>		
+		</select>
 		<input type="submit" value="Faire un don">
 	</form>
-</body>
-</html>
