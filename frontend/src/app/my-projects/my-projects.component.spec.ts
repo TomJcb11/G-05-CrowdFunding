@@ -49,7 +49,6 @@ mockDialog = jasmine.createSpyObj('MatDialog', ['open']);
     expect(projectElements[0].nativeElement.textContent).toContain('500');
   });
 
-
   it('should delete project on menu delete click', () => {
     mockDialog.open.and.returnValue({ afterClosed: () => of(true) });
     mockProjetService.deleteProjet.and.returnValue(of({}));

@@ -70,15 +70,10 @@
     color: #333;
 }
 
-.menu li a:hover {
-    background-color: #1a5623;
-    color: #fff;
-    border-radius: 13px;
-}
-
 .menu-container.show {
     display: block;
 }
+
 .button-container {
     position: fixed;
     bottom: 20px;
@@ -93,9 +88,9 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-  }
-  
-  .plus-sign {
+}
+
+.plus-sign {
     font-size: 24px;
     color: black;
-  }
+}
