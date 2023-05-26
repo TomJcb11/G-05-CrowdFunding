@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 
@@ -26,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { PopupComponent } from './popup/popup.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -53,13 +53,10 @@ import { PopupComponent } from './popup/popup.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
     RouterModule,
     AppRoutingModule,
-    MatDialogModule,
-    MatButtonModule
 
   ],
   providers: [],

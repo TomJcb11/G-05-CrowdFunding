@@ -25,59 +25,59 @@
 .note {
   position: relative;
   display: flex;
-  background-color: #fff9c4;
+  background-color: #d1c65f;
   padding: 5px;
   border: 1px solid #000000;
   border-radius: 3px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin-left: 10%;
+  justify-content: center;
+  vertical-align: center;
+  font-size: 1.5em;
 }
 
 .note svg {
   margin-left: 10px;
   border: 1px solid #000000;
   padding: 2px;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   vertical-align: middle;
 }
 
-.note::before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-top: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid #fff9c4;
-  border-left: 5px solid transparent;
-}
 
+.li {
+  flex: 1;
+}
 .project{
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
   list-style-type: none;
   display: inline-flex;
+
+
+  margin-bottom: 2vh;
+
 }
 .project button {
-  display: inline-flexbox;
+  display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   border-radius: 13px;
-  width: 300px;
-  height: 200px;
+  flex: 1 0 calc(33.33% - 19px); /* Divise l'espace en trois parts égales avec une marge */
   padding: 15px;
   margin-bottom: 10px;
   margin-right: 4px;
-  margin-left:  15px;
-  flex-basis: calc(25% - 20px);
-
+  margin-left: 15px;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
+}
+.project button .nom_projet {
+  text-transform: uppercase;
+  font-weight: bolder;
 }
 
 .project button:hover {
@@ -87,7 +87,6 @@
 .project button svg {
   width: 20%;
   height: 20%;
-  margin-bottom: 10px;
 }
 
 .finished:not(.suspended):not(.in-progress) {
@@ -151,5 +150,18 @@
       width: 60px;
       height: 50px;
     }
+  }
+}
+
+/* Media queries pour les différentes tailles d'écran */
+@media screen and (max-width: 768px) {
+  .project {
+    width: calc(100% / 2); /* Deux projets par ligne pour les écrans jusqu'à 768px */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .project  {
+    width: 100%; /* Un projet par ligne pour les écrans jusqu'à 480px */
   }
 }
