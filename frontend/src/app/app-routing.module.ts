@@ -14,6 +14,7 @@ import { DonationComponent } from './donation/donation.component';
 
 
 
+
 const routes: Routes = [
     //{ path: 'createproject', component: CreateProjectComponent, canActivate: [AuthGuard]},
     //{ path: 'login', component: LoginComponent},
@@ -25,7 +26,7 @@ const routes: Routes = [
     {path: 'project/:projectName' , component:OneProjectBasedOnIdComponent},
     {path: 'odd/:oddName' , component:OddProjetComponent},
     {path: 'project/:projectName/donation' , component:DonationsComponent},
-    { path: ':id_projet/Donation', component: DonationComponent }
+    {path: ':id_projet/Donation', component: DonationComponent }
 
 
 ];

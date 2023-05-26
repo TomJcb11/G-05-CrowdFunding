@@ -44,7 +44,8 @@ import { PopupComponent } from './popup/popup.component';
     SettingsComponent,
     LoginComponent,
     DonationsComponent,
-    DonationComponent
+    DonationComponent,
+    PopupComponent
 
 
 

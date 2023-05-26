@@ -68,8 +68,6 @@ const getAllProjectFromOdd = (req, res) => {
     );
   };
   
-
-
 const getAllProject=(req,res) =>{
     client.query('SELECT projets.*, statuts.nom_statut, odd.nom_odd FROM projets  JOIN statuts ON projets.statut_projet = statuts.id_statut  JOIN odd ON projets.id_projet = id_odd ORDER BY projets.id_projet;', (error, result) => {
       if (error) {
