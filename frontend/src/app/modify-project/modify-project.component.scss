@@ -1,42 +1,42 @@
-    form {
-        display: flex;
-        flex-direction: column;
-        padding: 2%;
-        background-color: #66bb6a;
-        border-radius: 25px;
-        width: 70%;
-        /*max-width: 750px;*/
-        margin: 0 auto;
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    background-color: #66bb6a;
+    border-radius: 25px;
+    width: 70%;
+    /*max-width: 750px;*/
+    margin: 0 auto;
+}
+
+label {
+    color: black;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+input[type="text"],
+input[type="double precision"] {
+    border-radius: 25px;
+    padding: 0.6rem;
+    border: none;
+    outline: none;
+    color: black;
+    background-color: #c8e6c9;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+    &::placeholder {
+        color: #c8e6c9;
     }
-    
-    label {
-        color: black;
-        margin-bottom: 0.5rem;
-        font-size: 1.2rem;
-    }
-    
-    input[type="text"],
-    input[type="double precision"] {
-        border-radius: 25px;
-        padding: 0.6rem;
-        border: none;
-        outline: none;
-        color: black;
-        background-color: #c8e6c9;
-        box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
-        &::placeholder {
-            color: #c8e6c9;
-        }
-    }
-    
-    input[type="submit"] {
-        padding: 0.8rem;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        transition: 0.4s ease-in-out;
-        background-color: #c8e6c9;
-        color: black;
-        width: 250px;
-        margin: auto; // Ajout de la propriété pour centrer le bouton
-    }
+}
+
+input[type="submit"] {
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: 0.4s ease-in-out;
+    background-color: #c8e6c9;
+    color: black;
+    width: 250px;
+    margin: auto; // Ajout de la propriété pour centrer le bouton
+}

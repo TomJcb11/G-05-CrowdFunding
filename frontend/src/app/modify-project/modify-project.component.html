@@ -5,13 +5,10 @@
 <label>Objectif de recolte: </label><input type="double precision" id="moneyValue" [(ngModel)]="project.recolte_projet" name="recolte_projet" /><br>
 <input type="submit" value="Submit">
 </form>-->
-<form (ngSubmit)="onSubmit()" ngNativeValidate *ngIf="project">
-    <label>Project name: </label>
-    <input type="text" [(ngModel)]="project.nom_projet" name="nom_projet" id="nom_projet" /><br>
-    <label>Description: </label>
-    <input type="text" [(ngModel)]="project.description_projet" name="description_projet" id="description_projet" /><br>
+<form (ngSubmit)="onSubmit()" ngNativeValidate>
+    <label>Project name: </label><input type="text" [(ngModel)]="project.nom_projet" name="nom_projet" id="nom_projet" /><br>
+    <label>Description: </label><input type="text" [(ngModel)]="project.description_projet" name="description_projet" id="description_projet" /><br>
     <!--<label>Project Picture :</label><input type="file" ngModel name="projectPicture" accept="image/png, image/jpeg" id="projectPicture" (change)="onFileSelected($event)" /><br>-->
-    <label>Objectif de recolte: </label>
-    <input type="double precision" id="moneyValue" [(ngModel)]="project.recolte_projet" name="recolte_projet" /><br>
+    <label>Objectif de recolte: </label><input type="double precision" id="moneyValue" [(ngModel)]="project.recolte_projet" name="recolte_projet" /><br>
     <input type="submit" value="Submit">
 </form>
