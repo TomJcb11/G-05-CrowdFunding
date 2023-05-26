@@ -1,0 +1,78 @@
+// Variables pour les couleurs
+$couleur-principale: #32871f;
+$couleur-secondaire: #2c3e50;
+$couleur-fond: #f2f2f2;
+
+// Style de base pour le corps de la page
+body {
+    font-family: Arial, sans-serif;
+    background-color: $couleur-fond;
+}
+
+// En-tête de la page
+h1, span {
+    color: $couleur-principale;
+    text-align: center;
+}
+
+// Bloc des statistiques
+p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+
+    span {
+        color: $couleur-secondaire;
+        font-weight: normal;
+    }
+}
+
+// Formulaire de don
+form {
+    max-width: 500px;
+    margin: 0 auto;
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: $couleur-principale;
+        font-weight: bold;
+    }
+
+    input[type="number"],
+    input[type="text"],
+    select {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        box-sizing: border-box;
+        background-color: white;
+        color: $couleur-secondaire;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 5px $couleur-principale;
+        }
+    }
+
+    input[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: $couleur-principale;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken($couleur-principale, 10%);
+        }
+    }
+}

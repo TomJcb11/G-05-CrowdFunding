@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 
 
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './navbar/home/home.component';
@@ -20,7 +21,10 @@ import { ProfileComponent } from './navbar/dropdown/profile/profile.component';
 import { SettingsComponent } from './navbar/dropdown/settings/settings.component';
 import { LoginComponent } from './navbar/dropdown/login/login.component';
 import { DonationsComponent } from './projets/donations/donations.component';
-
+import { DonationComponent } from './donation/donation.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PopupComponent } from './popup/popup.component';
 
 
 
@@ -39,7 +43,7 @@ import { DonationsComponent } from './projets/donations/donations.component';
     SettingsComponent,
     LoginComponent,
     DonationsComponent,
-
+    DonationComponent
 
 
 
@@ -48,8 +52,11 @@ import { DonationsComponent } from './projets/donations/donations.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
-
+    FormsModule,
+    BrowserAnimationsModule,
+    RouterModule,
+    AppRoutingModule,
+    MatDialogModule,
 
   ],
   providers: [],
