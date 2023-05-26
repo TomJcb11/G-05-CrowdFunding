@@ -6,12 +6,41 @@
 <input type="submit" value="Submit">
 </form>-->
 <form (ngSubmit)="onSubmit()" ngNativeValidate *ngIf="project">
-    <label>Project name: </label>
+    <label>Nom Projet: </label>
     <input type="text" [(ngModel)]="project.nom_projet" name="nom_projet" id="nom_projet" /><br>
     <label>Description: </label>
     <input type="text" [(ngModel)]="project.description_projet" name="description_projet" id="description_projet" /><br>
     <!--<label>Project Picture :</label><input type="file" ngModel name="projectPicture" accept="image/png, image/jpeg" id="projectPicture" (change)="onFileSelected($event)" /><br>-->
     <label>Objectif de recolte: </label>
     <input type="double precision" id="moneyValue" [(ngModel)]="project.recolte_projet" name="recolte_projet" /><br>
+    <label>Odd: </label>
+    <select type="integer" [(ngModel)]="project.odd_projet" name="odd_projet" id="odd_projet">
+        <option value="1">1 (Pas de Pauvreté)</option>
+        <option value="2">2 (Zéro Faim)</option>
+        <option value="3">3 (Santé & bien-être)</option>
+        <option value="4">4 (Education de Qualité)</option>
+        <option value="5">5 (Egalité entre les Sexes)</option>
+        <option value="6">6 (Eau propre & Assainissement)</option>
+        <option value="7">7 (Energie Propre & Abordable)</option>
+        <option value="8">8 (Travail décent & Croissance économique)</option>
+        <option value="9">9 (Industrie , Innovation & Infrastructure)</option>
+        <option value="10">10 (Inégalités Réduites)</option>
+        <option value="11">11 (Villes & Communautés Durables)</option>
+        <option value="12">12 (Consommation & Production Responsables)</option>
+        <option value="13">13 (Lutte Contre le Changement Climatique)</option>
+        <option value="14">14 (Vie Aquatique)</option>
+        <option value="15">15 (Vie Terrestre)</option>
+        <option value="16">16 (Paix. Justice & Institutions)</option>
+        <option value="17">17 (Partenariat pour la réalisation des objectifs)</option>
+    </select><br>
+
+    <label>Statut: </label>
+    <select type="integer" [(ngModel)]="project.statut_projet" name="status_projet" id="status_projet">
+        <option value="1">1: En cours</option>
+        <option value="2">2: Terminé</option>
+        <option value="3">3: Suspendu</option>
+    </select><br>
+
+
     <input type="submit" value="Submit">
 </form>

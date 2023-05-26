@@ -16,7 +16,8 @@
     }
     
     input[type="text"],
-    input[type="double precision"] {
+    input[type="double precision"],
+    select {
         border-radius: 25px;
         padding: 0.6rem;
         border: none;
@@ -24,9 +25,11 @@
         color: black;
         background-color: #c8e6c9;
         box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
-        &::placeholder {
-            color: #c8e6c9;
-        }
+    }
+    
+    input[type="text"]::placeholder,
+    input[type="double precision"]::placeholder {
+        color: #c8e6c9;
     }
     
     input[type="submit"] {
