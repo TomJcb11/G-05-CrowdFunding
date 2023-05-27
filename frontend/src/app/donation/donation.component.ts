@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DonationService } from '../Services/donation.service';
-import { MatDialog } from '@angular/material/dialog';
-import { PopupComponent } from '../popup/popup.component';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
@@ -19,8 +17,7 @@ export class DonationComponent implements OnInit {
   message_don: string = '';
   mode_paiement: string = 'Bancontact';
 
-
-  constructor(private donationService: DonationService, private dialog: MatDialog, private route: ActivatedRoute, private router: Router) { }
+  constructor(private donationService: DonationService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -42,12 +39,8 @@ export class DonationComponent implements OnInit {
       response => {
         console.log(response);
         if (response.status === 200) {
-          let dialogRef = this.dialog.open(PopupComponent);
-          dialogRef.afterClosed().subscribe(result => {
-            if(result) {
-              this.router.navigate(['/']);
-            }
-          });
+          alert("Donation successful"); // utiliser window.alert()
+          this.router.navigate(['/']);
         } else {
           this.router.navigate(['/:nom_projet/Donation']);
         }
@@ -73,4 +66,3 @@ export class DonationComponent implements OnInit {
     );
   }
 }
-
