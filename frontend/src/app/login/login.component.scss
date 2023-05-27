@@ -1,0 +1,160 @@
+.input,
+button {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    padding: 10px;
+    border: 0.1px solid #575cb5;
+}
+
+button {
+    background: #47794e;
+    border: none;
+}
+
+.wrapper {
+    position: relative;
+    transform: skewY(-14deg);
+}
+
+.wrapper li,
+button {
+    position: relative;
+    list-style: none;
+    width: 200px;
+    z-index: var(--i);
+    transition: 0.3s;
+    color: white;
+}
+
+.wrapper li::before,
+button::before {
+    position: absolute;
+    content: '';
+    background: #47794e;
+    top: 0;
+    left: -40px;
+    width: 40px;
+    height: 40px;
+    transform-origin: right;
+    transform: skewY(45deg);
+    transition: 0.3s;
+}
+
+.wrapper li::after,
+button::after {
+    position: absolute;
+    content: '';
+    background: #47794e;
+    width: 200px;
+    height: 40px;
+    top: -40px;
+    left: 0;
+    transform-origin: bottom;
+    transform: skewX(45deg);
+    transition: 0.3s;
+}
+
+.wrapper li:nth-child(1)::after,
+.wrapper li:nth-child(1)::before {
+    background-color: #c8e6c9;
+}
+
+.wrapper li:nth-child(2)::after,
+.wrapper li:nth-child(2)::before {
+    background-color: #66bb6a;
+}
+
+.wrapper li:nth-child(3)::after,
+.wrapper li:nth-child(3)::before {
+    background-color: #398c3d;
+}
+
+li .input {
+    outline: none;
+    border: none;
+    color: black;
+}
+
+li .input::placeholder {
+    color: black;
+}
+
+li:nth-child(1) .input {
+    background: #c8e6c9;
+}
+
+li:nth-child(2) .input {
+    background: #66bb6a;
+}
+
+li:nth-child(3) .input {
+    background: #398c3d;
+}
+
+li:nth-child(1) .input:focus {
+    outline: none;
+    border: 3.5px solid #c8e6c9;
+}
+
+li:nth-child(2) .input:focus {
+    outline: none;
+    border: 3.5px solid #66bb6a;
+}
+
+li:nth-child(3) .input:focus {
+    outline: none;
+    border: 3.5px solid #398c3d;
+}
+
+.wrapper li:hover,
+button:hover {
+    transform: translateX(-20px);
+}
+
+button:hover,
+button:hover::before,
+button:hover::after {
+    background: #1a5623;
+}
+
+button:active {
+    transform: translateX(0px);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li {
+    width: 100%;
+}
+
+.input {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 0.1px solid #47794e;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    background: #47794e;
+    border: none;
+    color: white;
+    cursor: pointer;
+}

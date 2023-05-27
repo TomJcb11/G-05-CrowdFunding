@@ -3,6 +3,10 @@
     "jest": "^29.5.0"
   },
   "dependencies": {
-    "ngx-cookie": "^6.0.1"
+    "@angular/forms": "^16.0.3",
+    "ngx-cookie": "^6.0.1",
+    "sequelize": "^6.31.1",
+    "sudo": "^1.0.3",
+    "uuid": "^3.4.0"
   }
 }

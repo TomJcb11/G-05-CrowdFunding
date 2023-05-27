@@ -15,18 +15,19 @@ import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyProjectPageComponent } from './my-project-page/my-project-page.component';
 import { ModifyProjectComponent } from './modify-project/modify-project.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ModifyProjectPageComponent } from './modify-project-page/modify-project-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CreateProjectComponent } from './create-project/create-project.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { CookieModule } from 'ngx-cookie';
+import { AuthGuard } from './auth.guard';
 
 const appRoutes: Routes = [
   { path: '', component: NavbarComponent },
   { path: 'my-project', component: MyProjectPageComponent },
-  { path: 'my-project/modify/:id', component: ModifyProjectPageComponent}
+  { path: 'my-project/modify/:id', component: ModifyProjectPageComponent},
+  { path: 'createproject', component: CreateProjectComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
