@@ -1,12 +1,13 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef} from '@angular/core';
+
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.scss']
 })
 
-export class NavbarComponent {
+export class NavbarComponent{
 
   constructor(private el: ElementRef) {}
 

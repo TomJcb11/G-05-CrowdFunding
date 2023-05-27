@@ -17,7 +17,11 @@ import { MyProjectPageComponent } from './my-project-page/my-project-page.compon
 import { ModifyProjectComponent } from './modify-project/modify-project.component';
 import { FormsModule } from '@angular/forms';
 import { ModifyProjectPageComponent } from './modify-project-page/modify-project-page.component';
-
+import { AppRoutingModule } from './app-routing.module';
+import { CreateProjectComponent } from './create-project/create-project.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { CookieModule } from 'ngx-cookie';
 
 const appRoutes: Routes = [
   { path: '', component: NavbarComponent },
@@ -38,19 +42,27 @@ const appRoutes: Routes = [
     MyProjectPageComponent,
     ModifyProjectComponent,
     ModifyProjectPageComponent,
-    
+    CreateProjectComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule,
+    CookieModule.withOptions({
+          sameSite: 'lax'
+      })
   ],
   exports:[RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+}
