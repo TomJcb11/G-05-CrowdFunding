@@ -45,10 +45,10 @@ CREATE TABLE benevoles (
 );
 
 CREATE TABLE investisseurs (
-  id_projet INTEGER NOT NULL REFERENCES projets(id_projet),
+  nom_projet TEXT NOT NULL REFERENCES projets(nom_projet),
   id_utilisateur INTEGER NOT NULL REFERENCES utilisateurs(id_utilisateur),
   id_paiement INTEGER NOT NULL REFERENCES paiements(id_paiement),
-  PRIMARY KEY (id_projet, id_utilisateur)
+  PRIMARY KEY (nom_projet, id_utilisateur)
 );
 
 CREATE TABLE chat (

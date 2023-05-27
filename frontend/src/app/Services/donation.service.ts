@@ -10,13 +10,13 @@ export class DonationService {
 
   constructor(private http: HttpClient) { }
 
-  getStats(id_projet: number): Observable<any> {
-    const url = `${this.baseUrl}/api/${id_projet}/Donation`;
+  getStats(nom_projet: string): Observable<any> {
+    const url = `${this.baseUrl}/api/${nom_projet}/Donation`;
     return this.http.get(url);
   }
   
-  submitDonation(id_projet: number, id_ut: number, data: any): Observable<any> {
-    const url = `${this.baseUrl}/api/donation/send/${id_projet}/${id_ut}`;
+  submitDonation(nom_projet: string, id_ut: number, data: any): Observable<any> {
+    const url = `${this.baseUrl}/api/donation/send/${nom_projet}/${id_ut}`;
     return this.http.post(url, data);
   }
 }

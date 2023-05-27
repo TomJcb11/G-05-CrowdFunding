@@ -3,7 +3,7 @@ const client = new Client({
     host: 'localhost',
     port: 5432,
     database: 'giverr',
-    password: 'admin',
+    password: 'root',
     user: 'postgres'
 });
 
@@ -93,27 +93,35 @@ const getOneProject = (req, res) => {
 };
 
 const getStats = (req, res) => {
-    const id_projet = parseInt(req.params.id_projet);
+  const nom_projet = req.params.nom_projet;
 
-    client.query('SELECT COUNT(*) FROM investisseurs WHERE id_projet = $1', [id_projet], (error, result1) => {
-        if (error) {
-            throw error;
-        }
+  client.query('SELECT id_projet FROM projets WHERE nom_projet = $1', [nom_projet], (error, result) => {
+      if (error) {
+          throw error;
+      }
+      const id_projet = result.rows[0].id_projet;
 
-        client.query('SELECT recolte_projet FROM projets WHERE id_projet = $1', [id_projet], (error, result2) => {
-            if (error) {
-                throw error;
-            }
+      client.query('SELECT COUNT(*) FROM investisseurs WHERE id_projet = $1', [id_projet], (error, result1) => {
+          if (error) {
+              throw error;
+          }
 
-            const response = {
-                count: result1.rows[0].count,
-                recolte_projet: result2.rows[0].recolte_projet,
-            };
+          client.query('SELECT recolte_projet FROM projets WHERE id_projet = $1', [id_projet], (error, result2) => {
+              if (error) {
+                  throw error;
+              }
 
-            res.status(200).json(response);
-        });
-    });
+              const response = {
+                  count: result1.rows[0].count,
+                  recolte_projet: result2.rows[0].recolte_projet,
+              };
+
+              res.status(200).json(response);
+          });
+      });
+  });
 };
+
 
 // exportation des fonctions
 module.exports = {
