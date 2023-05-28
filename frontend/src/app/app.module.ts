@@ -40,9 +40,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NavbarComponent,
-
     MyProjectComponent,
-
     ProjetsComponent,
     AllTheProjectsComponent,
     OneProjectBasedOnIdComponent,
