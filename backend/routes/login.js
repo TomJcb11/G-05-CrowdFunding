@@ -36,23 +36,39 @@ router.post("/api/login", login.login);
  * @swagger
  * /api/authenticate:
  *   get:
- *     description: Use to authenticate
+ *     description: Cette route permet de vérifier si l'utilisateur est autorisé en utilisant un jeton d'authentification valide.
  *     tags:
- *       - Login
+ *       - Authentification
  *     produces:
  *       - application/json
- *     security:
- *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: token
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: Jeton d'authentification de l'utilisateur
  *     responses:
- *       '200':
- *         description: Utilisateur autorisé
- *       '401':
- *         description: Utilisateur non autorisé
- *     securitySchemes:
- *       BearerAuth:
- *         type: http
- *         scheme: bearer
- *         bearerFormat: JWT
+ *       200:
+ *         description: Requête réussie. L'utilisateur est autorisé.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   description: Message indiquant que l'utilisateur est autorisé.
+ *       401:
+ *         description: Accès non autorisé. Le jeton d'authentification est invalide ou manquant.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   description: Message d'erreur indiquant l'accès non autorisé.
  */
 router.get("/api/authenticate", authenticate.authenticateToken, (req, res) => {
 	res.status(200).json({message: "Utilisateur autorisé"});

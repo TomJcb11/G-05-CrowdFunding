@@ -23,6 +23,7 @@ export class LoginComponent {
             password: this.loginForm.value.password
         };
         this.http.post('http://localhost:8080/api/login', values).subscribe((data : any) => {
+            console.log(data.token);
             this.cookieService.put('token', data.token);
             this.cookieService.put('id', data.id);
         });
