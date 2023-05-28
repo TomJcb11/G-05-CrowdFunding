@@ -23,16 +23,6 @@
   }
 }
 
-h1 {
-  margin-left: 10%;
-  width: 70%;
-  border: 2px solid #006633;
-  padding: 10px;
-  color: white;
-  background-color: #006633;
-  border-radius: 45%;
-  text-align:center
-}
 .note {
   position: relative;
   display: flex;
@@ -66,27 +56,45 @@ h1 {
   border-left: 5px solid transparent;
 }
 
+h1 {
+  margin-left: 10%;
+  width: 70%;
+  border: 2px solid #006633;
+  padding: 10px;
+  color: white;
+  background-color: #006633;
+  border-radius: 45%;
+  text-align:center;
+  font-weight: bold;
+}
+.li{
+  flex:1
+}
+h2{
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .project{
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
   list-style-type: none;
   display: inline-flex;
+  margin-bottom: 2vh;
 }
 .project button {
-  display: inline-flexbox;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   border-radius: 13px;
-  width: 300px;
-  height: 200px;
+  flex: 1 0 calc(33.33% - 19px); /* Divise l'espace en trois parts égales avec une marge */
   padding: 15px;
   margin-bottom: 10px;
   margin-right: 4px;
   margin-left:  15px;
-  flex-basis: calc(25% - 20px);
-
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
@@ -146,12 +154,12 @@ h1 {
       justify-content: left;
 
       svg {
+        display: flex;
         width: 60px;
         height: 50px;
       }
     }
   }
-
   .volunteer {
     display: flex;
     align-items: right;
