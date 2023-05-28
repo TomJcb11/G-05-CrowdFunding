@@ -20,6 +20,7 @@ const submitDonation = async (req, res) => {
     const mode_paiement = req.body.mode_paiement;
 
     try {
+        console.log(mode_paiement)
         const result = await client.query('SELECT id_paiement FROM paiements WHERE nom_paiement = $1', [mode_paiement]);
         const moyen_paiement = result.rows[0].id_paiement;
         const result2 = await client.query('SELECT id_projet FROM projets WHERE nom_projet = $1', [nom_projet]);
