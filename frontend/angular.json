@@ -30,7 +30,11 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
+=======
+              "@angular/material/prebuilt-themes/purple-green.css",
+>>>>>>> a88269382279df5fc5803de048dd8eea92ebafa2
               "src/styles.scss"
             ],
             "scripts": []
@@ -94,7 +98,11 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
+=======
+              "@angular/material/prebuilt-themes/purple-green.css",
+>>>>>>> a88269382279df5fc5803de048dd8eea92ebafa2
               "src/styles.scss"
             ],
             "scripts": []
@@ -102,5 +110,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "56bc6154-4f6a-4599-8806-42fa83396dfe"
   }
 }

@@ -1,24 +1,27 @@
-const {Client} = require('pg');
+const { Client } = require('pg');
 const client = new Client({
     host: 'localhost',
     port: 5432,
     database: 'giverr',
+<<<<<<< HEAD
     password: 'admin',
+=======
+    password: 'root',
+>>>>>>> a88269382279df5fc5803de048dd8eea92ebafa2
     user: 'postgres'
 });
 
 //test connection à la base de données
-client.connect(console.log('connexion réussie'));
+client.connect(console.log('get: connexion réussie'));
 
 // récupération de tous les utilisateurs
-const getAllUsers = (req, res) => {
-
-    client.query('SELECT * FROM utilisateurs', (err, result) => {
-        if (err) {
-            console.log(err);
-        }
+const getAllUsers = async(req, res) => {
+    try {
+        const result = await db.query('SELECT * FROM users');
         res.status(200).json(result.rows);
-    });
+    } catch (error) {
+        res.status(500).json({ error: 'Database error' });
+    }
 };
 
 //récupération d'un utilisateur
@@ -33,6 +36,7 @@ const getOneUser = (req, res) => {
     });
 };
 
+<<<<<<< HEAD
 //récupération de tous les odd
 const getAllOdd=(req,res) =>{
     client.query('SELECT odd.nom_odd FROM odd INNER JOIN projets ON odd.id_odd = projets.odd_projet;', (error, result) => {
@@ -85,6 +89,11 @@ const getOneProject = (req, res) => {
     const name = req.params.id;
 
     client.query('SELECT id_projet,nom_projet,admin_projet,prenom_utilisateur, nom_utilisateur,statut_projet,nom_statut ,id_odd, nom_odd,description_projet,objectif_projet,recolte_projet, benevole_projet FROM projets JOIN odd on odd_projet = id_odd JOIN statuts on statut_projet = id_statut JOIN utilisateurs on admin_projet = id_utilisateur WHERE nom_projet = $1', [name], (err, result) => {
+=======
+const getAllProjects = (req, res) => {
+
+    client.query('SELECT * FROM projects ORDER BY id_projet', (err, result) => {
+>>>>>>> a88269382279df5fc5803de048dd8eea92ebafa2
         if (err) {
             console.log(err);
         }
@@ -92,6 +101,7 @@ const getOneProject = (req, res) => {
     });
 };
 
+<<<<<<< HEAD
 const getStats = (req, res) => {
     const id_projet = parseInt(req.params.id_projet);
 
@@ -114,14 +124,32 @@ const getStats = (req, res) => {
         });
     });
 };
+=======
+const getOneProject = (req, res) => {
+    const id = parseInt(req.params.id);
+
+    client.query('SELECT * FROM projects WHERE id_projet = $1', [id], (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        res.status(200).json(result.rows);
+    });
+};
+
+>>>>>>> a88269382279df5fc5803de048dd8eea92ebafa2
 
 // exportation des fonctions
 module.exports = {
     getAllUsers,
     getOneUser,
+<<<<<<< HEAD
     getAllOdd,
     getAllProjectFromOdd,
     getAllProject,
     getOneProject,
     getStats
+=======
+    getAllProjects,
+    getOneProject
+>>>>>>> a88269382279df5fc5803de048dd8eea92ebafa2
 };

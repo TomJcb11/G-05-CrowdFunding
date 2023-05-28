@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Component, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+=======
+import { Component } from '@angular/core';
+>>>>>>> a88269382279df5fc5803de048dd8eea92ebafa2
 
 @Component({
   selector: 'app-dropdown',
@@ -6,6 +10,7 @@ import { Component, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/co
   styleUrls: ['./dropdown.component.scss']
 })
 export class DropdownComponent {
+<<<<<<< HEAD
   @ViewChild('profileBtn', { static: false }) profileBtn!: ElementRef<HTMLElement>;
   showOptions = false;
 
@@ -26,3 +31,11 @@ export class DropdownComponent {
     this.cdr.detectChanges();
   }
 }
+=======
+  showOptions = false;
+
+  toggleOptions() {
+    this.showOptions = !this.showOptions;
+  }
+}
+>>>>>>> a88269382279df5fc5803de048dd8eea92ebafa2

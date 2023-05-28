@@ -30,6 +30,7 @@ describe('NavbarComponent', () => {
   it('should create the navbar', () => {
     expect(component).toBeTruthy();
   });
+<<<<<<< HEAD
 
   it('should render the home component', () => {
     const homeElement = debugElement.nativeElement.querySelector('app-home');
@@ -67,3 +68,6 @@ describe('NavbarComponent', () => {
     expect(optionsElement).toBeFalsy();
   });
 });
+=======
+});
+>>>>>>> a88269382279df5fc5803de048dd8eea92ebafa2
