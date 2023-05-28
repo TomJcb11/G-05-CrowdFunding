@@ -36,9 +36,9 @@ router.get('/api/project',get.getAllProject)
 
 router.get('/api/project/:id',get.getOneProject)
 
-router.get('/api/:id_projet/Donation', get.getStats);
+router.get('/api/:nom_projet/Donation', get.getStats);
 
-router.post('/api/donation/send/:id/:id_ut', post.submitDonation);
+router.post('/api/donation/send/:nom_projet/:id_ut', post.submitDonation);
 
 // exportation des routes
 

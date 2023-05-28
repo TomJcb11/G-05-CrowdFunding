@@ -24,9 +24,9 @@ describe('DonationComponent', () => {
     };
 
     const activatedRouteStub = {
-      params: of({id_projet: 1}),
+      params: of({nom_projet: 'arbracame'}),
       snapshot: {
-        params: {id_projet: 1}
+        params: {nom_projet: 'arbracame'}
       }
     };
 
@@ -61,7 +61,7 @@ describe('DonationComponent', () => {
   });
 
   it('should call getStats on ngOnInit', () => {
-    expect(donationService.getStats).toHaveBeenCalledWith(1);
+    expect(donationService.getStats).toHaveBeenCalledWith('arbracame');
     expect(component.count).toBe(5);
     expect(component.recolte_projet).toBe(500);
   });
@@ -73,7 +73,7 @@ describe('DonationComponent', () => {
     component.mode_paiement = 'Paypal';
     component.onSubmit();
 
-    expect(donationService.submitDonation).toHaveBeenCalledWith(1, 3, {montant_don: 100, message_don: 'Great work!', mode_paiement: 'Paypal'});
+    expect(donationService.submitDonation).toHaveBeenCalledWith('arbracame', 3, {montant_don: 100, message_don: 'Great work!', mode_paiement: 'Paypal'});
     expect(component.montant_don).toBe(0);
     expect(component.message_don).toBe('');
     expect(component.mode_paiement).toBe('Bancontact');
@@ -86,7 +86,7 @@ describe('DonationComponent', () => {
     component.mode_paiement = 'Paypal';
     component.onSubmit();
   
-    expect(donationService.submitDonation).toHaveBeenCalledWith(1, 3, {montant_don: 100, message_don: 'Great work!', mode_paiement: 'Paypal'});
+    expect(donationService.submitDonation).toHaveBeenCalledWith('arbracame', 3, {montant_don: 100, message_don: 'Great work!', mode_paiement: 'Paypal'});
     expect(component.montant_don).toBe(0);
     expect(component.message_don).toBe('');
     expect(component.mode_paiement).toBe('Bancontact');
@@ -101,7 +101,7 @@ describe('DonationComponent', () => {
     component.mode_paiement = 'Paypal';
     component.onSubmit();
   
-    expect(donationService.submitDonation).toHaveBeenCalledWith(1, 3, {montant_don: 100, message_don: 'Great work!', mode_paiement: 'Paypal'});
+    expect(donationService.submitDonation).toHaveBeenCalledWith('arbracame', 3, {montant_don: 100, message_don: 'Great work!', mode_paiement: 'Paypal'});
     expect(donationService.getStats).toHaveBeenCalledTimes(2);
     expect(component.count).toBe(10);
     expect(component.recolte_projet).toBe(1000);

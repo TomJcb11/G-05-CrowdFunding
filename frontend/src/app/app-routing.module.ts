@@ -9,7 +9,6 @@ import { MyProjectComponent } from './navbar/my-project/my-project.component';
 import { ProfileComponent } from './navbar/dropdown/profile/profile.component';
 import { SettingsComponent } from './navbar/dropdown/settings/settings.component';
 import { LoginComponent } from './navbar/dropdown/login/login.component';
-import { DonationsComponent } from './projets/donations/donations.component';
 import { DonationComponent } from './donation/donation.component';
 
 
@@ -23,12 +22,9 @@ const routes: Routes = [
     {path: 'profile', component: ProfileComponent },
     {path: 'settings', component: SettingsComponent },
     {path: 'login', component: LoginComponent },
-    {path: 'project/:projectName' , component:OneProjectBasedOnIdComponent},
+    {path: 'project/:nom_projet' , component:OneProjectBasedOnIdComponent},
     {path: 'odd/:oddName' , component:OddProjetComponent},
-    {path: 'project/:projectName/donation' , component:DonationsComponent},
-    {path: ':id_projet/Donation', component: DonationComponent }
-
-
+    {path: 'project/:nom_projet/donation' , component:DonationComponent},
 ];
 
 
@@ -41,10 +37,6 @@ const routes: Routes = [
     ],
     exports: [RouterModule, RouterOutlet]
 })
-
-
-
-
 
 
 export class AppRoutingModule { }

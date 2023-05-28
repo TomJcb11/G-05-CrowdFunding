@@ -103,25 +103,43 @@ const getAllProjects = (req, res) => {
 
 <<<<<<< HEAD
 const getStats = (req, res) => {
-    const id_projet = parseInt(req.params.id_projet);
+  const nom_projet = req.params.nom_projet;
 
-    client.query('SELECT COUNT(*) FROM investisseurs WHERE id_projet = $1', [id_projet], (error, result1) => {
-        if (error) {
-            throw error;
+  client.query('SELECT id_projet FROM projets WHERE nom_projet = $1', [nom_projet], (error, result) => {
+      if (error) {
+          throw error;
+      }
+      const id_projet = result.rows[0].id_projet;
+
+      client.query('SELECT COUNT(*) FROM investisseurs WHERE id_projet = $1', [id_projet], (error, result1) => {
+          if (error) {
+              throw error;
+          }
+
+          client.query('SELECT recolte_projet FROM projets WHERE id_projet = $1', [id_projet], (error, result2) => {
+              if (error) {
+                  throw error;
+              }
+
+              const response = {
+                  count: result1.rows[0].count,
+                  recolte_projet: result2.rows[0].recolte_projet,
+              };
+
+              res.status(200).json(response);
+          });
+      });
+  });
+};
+=======
+const getOneProject = (req, res) => {
+    const id = parseInt(req.params.id);
+
+    client.query('SELECT * FROM projects WHERE id_projet = $1', [id], (err, result) => {
+        if (err) {
+            console.log(err);
         }
-
-        client.query('SELECT recolte_projet FROM projets WHERE id_projet = $1', [id_projet], (error, result2) => {
-            if (error) {
-                throw error;
-            }
-
-            const response = {
-                count: result1.rows[0].count,
-                recolte_projet: result2.rows[0].recolte_projet,
-            };
-
-            res.status(200).json(response);
-        });
+        res.status(200).json(result.rows);
     });
 };
 =======
@@ -137,6 +155,9 @@ const getOneProject = (req, res) => {
 };
 
 >>>>>>> a88269382279df5fc5803de048dd8eea92ebafa2
+
+>>>>>>> a88269382279df5fc5803de048dd8eea92ebafa2
+
 
 // exportation des fonctions
 module.exports = {

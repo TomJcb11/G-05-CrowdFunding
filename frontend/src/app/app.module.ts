@@ -20,11 +20,8 @@ import { OddProjetComponent } from './projets/odd-projet/odd-projet.component';
 import { ProfileComponent } from './navbar/dropdown/profile/profile.component';
 import { SettingsComponent } from './navbar/dropdown/settings/settings.component';
 import { LoginComponent } from './navbar/dropdown/login/login.component';
-import { DonationsComponent } from './projets/donations/donations.component';
 import { DonationComponent } from './donation/donation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
 import { PopupComponent } from './popup/popup.component';
 import { RouterModule } from '@angular/router';
 
@@ -70,7 +67,6 @@ const appRoutes: Routes = [
     ProfileComponent,
     SettingsComponent,
     LoginComponent,
-    DonationsComponent,
     DonationComponent,
     PopupComponent
 

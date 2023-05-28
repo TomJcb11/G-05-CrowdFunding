@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GetService } from 'src/app/Services/get.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-one-project-based-on-id',
   templateUrl: './one-project-based-on-id.component.html',
   styleUrls: ['./one-project-based-on-id.component.scss']
 })
+
 export class OneProjectBasedOnIdComponent implements OnInit {
   filteredData: any;
 
@@ -18,9 +18,9 @@ export class OneProjectBasedOnIdComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      const projectName = params['projectName'];
-      this.filterByProjectName(projectName);
-      console.log("le nom du projet :",projectName)
+      const nom_projet = params['nom_projet'];
+      this.filterByProjectName(nom_projet);
+      console.log("le nom du projet :", nom_projet)
     });
   }
 
@@ -43,9 +43,5 @@ export class OneProjectBasedOnIdComponent implements OnInit {
       return '';
     }
   }
-
-
-
-
 }
 
