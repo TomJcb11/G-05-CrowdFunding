@@ -18,7 +18,6 @@ router.get('/api/users', get.getAllUsers);
 
 router.get('/api/users/:id', get.getOneUser);
 router.get('/api/projects', get.getAllProjects);
-router.get('/api/projects/:id', get.getOneProject);
 router.delete('/api/projects/:id', del.deleteOneProject);
 router.put('/api/projects/modify/:id', put.updateOneProject);
 

@@ -31,6 +31,7 @@ describe('NavbarComponent', () => {
     expect(component).toBeTruthy();
   });
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   it('should render the home component', () => {
     const homeElement = debugElement.nativeElement.querySelector('app-home');
@@ -71,3 +72,6 @@ describe('NavbarComponent', () => {
 =======
 });
 >>>>>>> a88269382279df5fc5803de048dd8eea92ebafa2
+=======
+});
+>>>>>>> origin/lulualex

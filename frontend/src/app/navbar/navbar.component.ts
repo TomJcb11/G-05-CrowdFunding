@@ -19,8 +19,11 @@ export class NavbarComponent implements AfterViewInit {
       });
     }
   }
+<<<<<<< HEAD
 
   toggleDropdown() {
     this.dropdown.toggleOptions();
   }
+=======
+>>>>>>> origin/lulualex
 }

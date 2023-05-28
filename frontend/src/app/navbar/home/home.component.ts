@@ -8,7 +8,11 @@ import { Component } from '@angular/core';
 export class HomeComponent {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> a88269382279df5fc5803de048dd8eea92ebafa2
+=======
+}
+>>>>>>> origin/lulualex

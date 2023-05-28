@@ -30,11 +30,11 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
+
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
-=======
-              "@angular/material/prebuilt-themes/purple-green.css",
->>>>>>> a88269382279df5fc5803de048dd8eea92ebafa2
+
+
+
               "src/styles.scss"
             ],
             "scripts": []
@@ -98,11 +98,9 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
+
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
-=======
-              "@angular/material/prebuilt-themes/purple-green.css",
->>>>>>> a88269382279df5fc5803de048dd8eea92ebafa2
+
               "src/styles.scss"
             ],
             "scripts": []

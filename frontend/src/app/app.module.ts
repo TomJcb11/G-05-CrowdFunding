@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
-
-
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './navbar/home/home.component';
@@ -20,20 +16,16 @@ import { ProfileComponent } from './navbar/dropdown/profile/profile.component';
 import { SettingsComponent } from './navbar/dropdown/settings/settings.component';
 import { LoginComponent } from './navbar/dropdown/login/login.component';
 import { DonationComponent } from './donation/donation.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PopupComponent } from './popup/popup.component';
-import { RouterModule, Routes } from '@angular/router';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 import { MyProjectBComponent } from './navbar/my-project-b/my-project-b.component';
-
 import { MyProjectsComponent } from './my-projects/my-projects.component';
 import { CustomConfirmDialogComponent } from './custom-confirm-dialog/custom-confirm-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-
 import { MyProjectPageComponent } from './my-project-page/my-project-page.component';
 import { ModifyProjectComponent } from './modify-project/modify-project.component';
-
 import { ModifyProjectPageComponent } from './modify-project-page/modify-project-page.component';
 
 
@@ -43,13 +35,14 @@ const appRoutes: Routes = [
   { path: 'my-project/modify/:id', component: ModifyProjectPageComponent}
 ];
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent,
+
     MyProjectComponent,
-    DropdownComponent,
+
     ProjetsComponent,
     AllTheProjectsComponent,
     OneProjectBasedOnIdComponent,
@@ -59,7 +52,9 @@ const appRoutes: Routes = [
     LoginComponent,
     DonationComponent,
     PopupComponent,
+    HomeComponent,
     MyProjectBComponent,
+    DropdownComponent,
     MyProjectsComponent,
     CustomConfirmDialogComponent,
     MyProjectPageComponent,
@@ -69,9 +64,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    RouterModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
