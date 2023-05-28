@@ -6,7 +6,7 @@
     <div>Fondateur et administrateur du projet:</div>
     <div>ODD liée:</div>
     <div>Objectif de la récolte:</div>
-    <div>{{ item.objectif_projet }}</div>
+    <div>{{ item.objectif_projet }} €</div>
   </div>
 
   <div class="answer">
@@ -33,7 +33,7 @@
     <div>{{ item.prenom_utilisateur + ' ' + item.nom_utilisateur }}</div>
     <div>{{ item.nom_odd }}</div>
     <div>Etat de la récolte:</div>
-    <div>{{ item.recolte_projet }}</div>
+    <div>{{ item.recolte_projet }} € </div>
   </div>
   </div>
   <progress ngClass="getStatusClass(item.nom_statut)" [value]="item.recolte_projet" [max]="item.objectif_projet"></progress>
@@ -41,7 +41,7 @@
     <div class="divlink">
       <a *ngIf="item.nom_statut === 'En cours'" class="link" routerLink="/project/{{item.nom_projet}}/donation">Faire un Don</a>
     </div>
-    <h2>Description: </h2><br>
+    <h2 class="desc">Description: </h2><br>
     <p class="description">{{ item.description_projet }}</p>
   </div>
 
