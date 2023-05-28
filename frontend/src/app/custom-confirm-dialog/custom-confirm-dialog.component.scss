@@ -1,55 +1,54 @@
 // Ajoutez ce sélecteur pour cibler .cdk-overlay-pane et appliquer les styles
 .cdk-overlay-pane {
-    .mat-dialog-container {
-      border-radius: 13px !important;
-      overflow: hidden; // Cache les coins noirs en masquant le contenu débordant
-    }
+  .mat-dialog-container {
+    border-radius: 13px !important;
+    overflow: hidden; // Cache les coins noirs en masquant le contenu débordant
   }
+}
 :host {
-    display: block;
-    width: 100%;
-    max-width: 1500px;
-    min-height: 200px;
-    border: 0px solid #66bb6a;
-    /*border-radius: 13px;*/
-    background-color: #c8e6c9;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    overflow-x: hidden; // Ajoutez cette ligne pour supprimer la barre de défilement horizontale
-    color: #000; // Ajoutez cette ligne pour changer la couleur du texte en noir
-    }
+  display: block;
+  width: 100%;
+  max-width: 1500px;
+  min-height: 200px;
+  border: 0px solid #66bb6a;
+  /*border-radius: 13px;*/
+  background-color: #c8e6c9;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden; // Ajoutez cette ligne pour supprimer la barre de défilement horizontale
+  color: #000; // Ajoutez cette ligne pour changer la couleur du texte en noir
+  }
 .dialog-text { // Ajoutez cette classe pour définir la couleur du texte
-        color: #000;
-      } 
-  h2 {
-    padding: 16px 24px;
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 500;
-    border-bottom: 1px solid #e0e0e0;
-    color: #000;
-  }
-  
-  mat-dialog-content {
-    padding: 16px 24px;
-    color: #000;
-  }
-  
-  mat-dialog-actions {
-    display: flex;
-    justify-content: flex-end;
-    padding: 8px 15px;
-    border-top: 1px solid #e0e0e0;
-  
-    .dialog-button {
-      background-color: #bb6966;
-      color: #ffffff;
-      border-radius: 13px;
+      color: #000;
     }
-  
-    .dialog-button:hover {
-      background-color: #1a5623;
-      color: #ffffff;
-      border-radius: 13px;
-    }
+h2 {
+  padding: 16px 24px;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  border-bottom: 1px solid #e0e0e0;
+  color: #000;
+}
+
+mat-dialog-content {
+  padding: 16px 24px;
+  color: #000;
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 15px;
+  border-top: 1px solid #e0e0e0;
+
+  .dialog-button {
+    background-color: #bb6966;
+    color: #ffffff;
+    border-radius: 13px;
   }
-  
+
+  .dialog-button:hover {
+    background-color: #1a5623;
+    color: #ffffff;
+    border-radius: 13px;
+  }
+}

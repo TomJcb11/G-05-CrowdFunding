@@ -1,14 +1,11 @@
 {
-<<<<<<< HEAD
   "dependencies": {
     "@angular/cdk": "^16.0.2",
     "@angular/material": "^16.0.2",
     "install": "^0.13.0",
     "ngx-paypal": "^11.0.0",
-    "npm": "^9.6.7"
-=======
+    "npm": "^9.6.7",
   "devDependencies": {
     "jest": "^29.5.0"
->>>>>>> origin/lulualex
   }
 }
