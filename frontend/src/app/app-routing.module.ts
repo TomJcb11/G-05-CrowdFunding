@@ -10,14 +10,13 @@ import { ProfileComponent } from './navbar/dropdown/profile/profile.component';
 import { SettingsComponent } from './navbar/dropdown/settings/settings.component';
 import { LoginComponent } from './navbar/dropdown/login/login.component';
 import { DonationComponent } from './donation/donation.component';
-
-
-
+import { ModifyProjectPageComponent } from './modify-project-page/modify-project-page.component';
 
 const routes: Routes = [
     //{ path: 'createproject', component: CreateProjectComponent, canActivate: [AuthGuard]},
     //{ path: 'login', component: LoginComponent},
     {path: '',component:AllTheProjectsComponent},
+    { path: 'my-project/modify/:id', component: ModifyProjectPageComponent},
     {path: 'my-project', component: MyProjectPageComponent },
     {path: 'profile', component: ProfileComponent },
     {path: 'settings', component: SettingsComponent },
@@ -26,7 +25,6 @@ const routes: Routes = [
     {path: 'odd/:oddName' , component:OddProjetComponent},
     {path: 'project/:nom_projet/donation' , component:DonationComponent},
 ];
-
 
 @NgModule({
     declarations: [],
@@ -37,6 +35,5 @@ const routes: Routes = [
     ],
     exports: [RouterModule, RouterOutlet]
 })
-
 
 export class AppRoutingModule { }
