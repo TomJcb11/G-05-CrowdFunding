@@ -13,7 +13,7 @@ client.connect(console.log('connexion réussie'));
 const deleteOneProject = (req, res) => {
     const id = parseInt(req.params.id);
 
-    client.query('DELETE FROM projects WHERE id_projet = $1', [id], (err, result) => {
+    client.query('DELETE FROM projets WHERE id_projet = $1', [id], (err, result) => {
         if (err) {
             console.log(err);
         }
