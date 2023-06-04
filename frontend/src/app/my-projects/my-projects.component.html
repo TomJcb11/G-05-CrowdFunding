@@ -3,21 +3,16 @@
   <!--<img src="{{project.projet_img}}" alt="{{project.nom_projet}}">-->
   <h3>{{project.nom_projet}}</h3>
   <p>Description: {{project.description_projet}}</p>
-  <p>Amount: {{project.recolte_projet}} €</p>
-  <p>Admin: <i>{{project.admin_projet}}</i></p>
+  <p>Objectif de récolte: {{project.objectif_projet}} €</p>
+  <p>Récolte: {{project.recolte_projet}} €</p>
   <div class="menu-icon" (click)="toggleMenu($event)">
     <svg viewBox="0 0 24 24" width="24" height="24">
       <path fill="currentColor" d="M5 12c0 1.105.895 2 2 2s2-.895 2-2-.895-2-2-2-2 .895-2 2zm7 0c0 1.105.895 2 2 2s2-.895 2-2-.895-2-2-2-2 .895-2 2zm7 0c0 1.105.895 2 2 2s2-.895 2-2-.895-2-2-2-2 .895-2 2z"></path>
     </svg>
     <div class="menu-container">
       <ul class="menu">
-        <li [routerLink]="['/my-project/modify/' + project.id_projet]">Modifier</li>
-        <!-- <li [routerLink]="['/my-projects/modify/project.id_projet]">
-          <a >Modifier</a>
-        </li> -->
-        <li>
+        <li [routerLink]="['/my-project/modify/' + project.nom_projet]">Modifier</li>
           <a (click)="onDeleteProject(i); $event.stopPropagation()">Supprimer</a>
-        </li>
       </ul>
     </div>
   </div>

@@ -20,25 +20,25 @@ export class ModifyProjectComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      const projectId = +(params?.get('id') ?? 0);
-      if (projectId) {
-        this.projectService.getOneProject(projectId).subscribe((data: any) => {
-          this.project = data[0];
+      const projectName = params?.get('nom_projet');
+      if (projectName) {
+        this.projectService.getOneProject(projectName).subscribe((data: any) => {
+          this.project = data;
         });
       }
     });
   }
 
-  onSubmit() {
-    this.projectService.updateProject(this.project.id_projet, this.project).subscribe(
-      (response) => {
-        console.log('Response:', response);
+  onSubmit(): void {
+    this.projectService.updateProject(this.project.nom_projet, this.project)
+      .subscribe(response => {
+        console.log(response);
+        // Here you may want to redirect the user to another page or show a success message
         this.router.navigate(['/my-projects']);
         this.changeDetectorRef.detectChanges();
-      },
-      (error) => {
-        console.error('Error:', error);
-      }
-    );
+      }, error => {
+        console.error(error);
+        // Here you may want to show an error message
+      });
   }
 }

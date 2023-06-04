@@ -80,14 +80,17 @@ const getAllProject = (req, res) => {
 };
 
 const getOneProject = (req, res) => {
-    const name = req.params.id;
+    const nom_projet = req.params.nom_projet;
 
-    client.query('SELECT id_projet,nom_projet,admin_projet,prenom_utilisateur, nom_utilisateur,statut_projet,nom_statut ,id_odd, nom_odd,description_projet,objectif_projet,recolte_projet, benevole_projet FROM projets JOIN odd on odd_projet = id_odd JOIN statuts on statut_projet = id_statut JOIN utilisateurs on admin_projet = id_utilisateur WHERE nom_projet = $1', [name], (err, result) => {
-        if (err) {
-            console.log(err);
+    client.query(
+        'SELECT id_projet,nom_projet,admin_projet,prenom_utilisateur, nom_utilisateur,statut_projet,nom_statut ,id_odd, nom_odd,description_projet,objectif_projet,recolte_projet, benevole_projet FROM projets JOIN odd on odd_projet = id_odd JOIN statuts on statut_projet = id_statut JOIN utilisateurs on admin_projet = id_utilisateur WHERE nom_projet = $1', [nom_projet],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            }
+            res.status(200).json(result.rows);
         }
-        res.status(200).json(result.rows);
-    });
+    );
 };
 
 const getStats = (req, res) => {

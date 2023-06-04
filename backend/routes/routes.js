@@ -19,15 +19,15 @@ router.get('/api/users', get.getAllUsers);
 router.get('/api/users/:id', get.getOneUser);
 router.get('/api/projects', get.getAllProject);
 router.delete('/api/projects/:id', del.deleteOneProject);
-router.put('/api/projects/modify/:id', put.updateOneProject);
+router.put('/api/projects/modify/:nom_projet', put.updateOneProject);
 
-router.get('/api/odd',get.getAllOdd);
+router.get('/api/odd', get.getAllOdd);
 
-router.get('/api/odd/:name',get.getAllProjectFromOdd);
+router.get('/api/odd/:name', get.getAllProjectFromOdd);
 
-router.get('/api/project',get.getAllProject)
+router.get('/api/project', get.getAllProject)
 
-router.get('/api/project/:id',get.getOneProject)
+router.get('/api/project/:nom_projet', get.getOneProject)
 
 router.get('/api/:nom_projet/Donation', get.getStats);
 

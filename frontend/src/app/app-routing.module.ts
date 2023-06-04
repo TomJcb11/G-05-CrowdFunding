@@ -16,7 +16,7 @@ const routes: Routes = [
     //{ path: 'createproject', component: CreateProjectComponent, canActivate: [AuthGuard]},
     //{ path: 'login', component: LoginComponent},
     {path: '',component:AllTheProjectsComponent},
-    { path: 'my-project/modify/:id', component: ModifyProjectPageComponent},
+    {path: 'my-project/modify/:nom_projet', component: ModifyProjectPageComponent},
     {path: 'my-project', component: MyProjectPageComponent },
     {path: 'profile', component: ProfileComponent },
     {path: 'settings', component: SettingsComponent },
