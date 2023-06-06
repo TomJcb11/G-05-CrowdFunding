@@ -29,6 +29,19 @@ export class DonationComponent implements OnInit {
   onSubmit() {
     const nom_projet = this.route.snapshot.params['nom_projet'];
     const id_ut = 3;
+
+    // Vérifie si le montant du don est supérieur à 0
+    if (this.montant_don <= 0) {
+      alert('Le montant du don doit être supérieur à 0.');
+      return;  // quitte la fonction onSubmit si la condition n'est pas satisfaite
+    }
+
+    // Vérifie s'il y a au plus deux chiffres après la virgule
+    if (!(/^\d+(\.\d{1,2})?$/.test(this.montant_don.toString()))) {
+      alert('Le montant du don ne peut avoir que deux décimales.');
+      return;  // quitte la fonction onSubmit si la condition n'est pas satisfaite
+    }
+
     const data = {
       montant_don: this.montant_don,
       message_don: this.message_don,

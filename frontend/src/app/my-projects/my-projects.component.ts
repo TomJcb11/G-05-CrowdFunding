@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomConfirmDialogComponent } from '../custom-confirm-dialog/custom-confirm-dialog.component';
-import { ProjetService } from '../services/All_projects/all-projects.service';
+import { ProjetService } from '../Services/All_projects/all-projects.service';
 import { Router } from '@angular/router';
 
 @Component({

@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { ModifyProjectComponent } from './modify-project.component';
-import { ProjetService } from '../services/All_projects/all-projects.service';
+import { ProjetService } from '../Services/All_projects/all-projects.service';
 
 describe('ModifyProjectComponent', () => {
   let component: ModifyProjectComponent;

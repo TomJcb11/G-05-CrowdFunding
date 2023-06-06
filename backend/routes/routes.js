@@ -20,7 +20,6 @@ router.get('/api/projects', get.getAllProject);
 router.put('/api/projects/modify/:nom_projet', put.updateOneProject);
 router.get('/api/odd', get.getAllOdd);
 router.get('/api/odd/:name', get.getAllProjectFromOdd);
-router.get('/api/project', get.getAllProject)
 router.get('/api/projects/:nom_projet', get.getOneProject);
 router.get('/api/:nom_projet/Donation', get.getStats);
 router.post('/api/donation/send/:nom_projet/:id_ut', post.submitDonation);

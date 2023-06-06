@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
 
 import { MyProjectsComponent } from './my-projects.component';
-import { ProjetService } from '../services/All_projects/all-projects.service';
+import { ProjetService } from '../Services/All_projects/all-projects.service';
 import { RouterTestingModule } from '@angular/router/testing';
 
 

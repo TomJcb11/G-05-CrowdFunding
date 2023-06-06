@@ -38,6 +38,6 @@ export class AllTheProjectsComponent implements OnInit {
   redirectToFilteredPage(projectName: string) {
     // Redirection vers la page de projet filtrée en fonction du nom du projet
     const encodedProjectName = encodeURIComponent(projectName);
-    this.router.navigateByUrl('/project/' + encodedProjectName);
+    this.router.navigateByUrl('/projects/' + encodedProjectName);
   }
 }

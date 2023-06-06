@@ -22,7 +22,7 @@ const routes: Routes = [
     {path: 'profile', component: ProfileComponent },
     {path: 'settings', component: SettingsComponent },
     {path: 'login', component: LoginComponent },
-    {path: 'project/:nom_projet' , component:OneProjectBasedOnIdComponent},
+    {path: 'projects/:nom_projet' , component:OneProjectBasedOnIdComponent},
     {path: 'odd/:oddName' , component:OddProjetComponent},
     {path: 'project/:nom_projet/donation' , component:DonationComponent},
     {path: 'createproject' , component:CreateProjectComponent}

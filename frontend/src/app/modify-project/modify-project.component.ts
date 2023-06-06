@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProjetService } from '../services/All_projects/all-projects.service';
+import { ProjetService } from '../Services/All_projects/all-projects.service';
 import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
