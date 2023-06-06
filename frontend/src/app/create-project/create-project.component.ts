@@ -14,7 +14,7 @@ export class CreateProjectComponent implements OnInit {
   admin_projet = 1;
   description_projet = '';
   statut_projet = null;
-  objectif_projet = null;
+  objectif_projet = 0;
   recolte_projet = 0;  
   odd_projet = null;
   benevole_projet = false; 
@@ -26,6 +26,7 @@ export class CreateProjectComponent implements OnInit {
   }
 
   onSubmit(): void {
+
     const data = {
       nom_projet : this.nom_projet,
       description_projet: this.description_projet,
@@ -35,6 +36,18 @@ export class CreateProjectComponent implements OnInit {
       odd_projet: this.odd_projet,
       benevole_projet: this.benevole_projet
     };
+
+    if (data.objectif_projet <= 0) {
+      alert('Le montant du don doit être supérieur à 0.');
+      return;  // quitte la fonction onSubmit si la condition n'est pas satisfaite
+    }
+
+    // Vérifie s'il y a au plus deux chiffres après la virgule
+    if (!(/^\d+(\.\d{1,2})?$/.test(data.objectif_projet.toString()))) {
+      alert('Le montant du don ne peut avoir que deux décimales.');
+      return;  // quitte la fonction onSubmit si la condition n'est pas satisfaite
+    }
+
     this.projetService.createProject(data).subscribe(
       response => {
         console.log(response);

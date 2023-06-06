@@ -34,7 +34,7 @@ const getOneUser = (req, res) => {
 
 //récupération de tous les odd
 const getAllOdd = (req, res) => {
-    client.query('SELECT odd.nom_odd FROM odd INNER JOIN projets ON odd.id_odd = projets.odd_projet;', (error, result) => {
+    client.query('SELECT DISTINCT odd.nom_odd FROM odd INNER JOIN projets ON odd.id_odd = projets.odd_projet;', (error, result) => {
         if (error) {
             throw error;
         }

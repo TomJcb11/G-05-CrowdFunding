@@ -24,8 +24,8 @@ export class ProjetService {
   deleteProjet(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
-  updateProject(nom_projet: string, project: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/modify/${nom_projet}`, project);
+  updateProject(data:any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/modify/${data.nom_projet}`, data);
   }
   createProject(data: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/createproject`, data);
