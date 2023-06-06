@@ -8,7 +8,7 @@ const client = new Client({
 });
 
 //test connection à la base de données
-client.connect(console.log('put:connexion réussie'));
+client.connect(console.log('put: connexion réussie'));
 const updateOneProject = (req, res) => {
     const nom_projet = req.params.nom_projet;
     const { description_projet, recolte_projet, odd_projet, statut_projet, admin_projet } = req.body;
@@ -32,6 +32,7 @@ const updateOneProject = (req, res) => {
         }
     );
 };
+
 
 
 module.exports = {

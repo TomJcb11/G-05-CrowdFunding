@@ -11,6 +11,7 @@ import { SettingsComponent } from './navbar/dropdown/settings/settings.component
 import { LoginComponent } from './navbar/dropdown/login/login.component';
 import { DonationComponent } from './donation/donation.component';
 import { ModifyProjectPageComponent } from './modify-project-page/modify-project-page.component';
+import { CreateProjectComponent } from './create-project/create-project.component';
 
 const routes: Routes = [
     //{ path: 'createproject', component: CreateProjectComponent, canActivate: [AuthGuard]},
@@ -24,6 +25,7 @@ const routes: Routes = [
     {path: 'project/:nom_projet' , component:OneProjectBasedOnIdComponent},
     {path: 'odd/:oddName' , component:OddProjetComponent},
     {path: 'project/:nom_projet/donation' , component:DonationComponent},
+    {path: 'createproject' , component:CreateProjectComponent}
 ];
 
 @NgModule({

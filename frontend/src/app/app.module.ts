@@ -27,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MyProjectPageComponent } from './my-project-page/my-project-page.component';
 import { ModifyProjectComponent } from './modify-project/modify-project.component';
 import { ModifyProjectPageComponent } from './modify-project-page/modify-project-page.component';
+import { CreateProjectComponent } from './create-project/create-project.component';
 
 
 const appRoutes: Routes = [
@@ -58,6 +59,7 @@ const appRoutes: Routes = [
     MyProjectPageComponent,
     ModifyProjectComponent,
     ModifyProjectPageComponent,
+    CreateProjectComponent,
 
   ],
   imports: [

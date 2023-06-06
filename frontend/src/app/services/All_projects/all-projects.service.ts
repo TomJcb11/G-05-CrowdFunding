@@ -26,6 +26,9 @@ export class ProjetService {
   }
   updateProject(nom_projet: string, project: any): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/modify/${nom_projet}`, project);
-}
-  
+  }
+  createProject(project: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/createproject`, project);
+  }
+
 }
