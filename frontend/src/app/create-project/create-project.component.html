@@ -1,15 +1,15 @@
 <div class="create-project-container">
 
-    <form (ngSubmit)="onSubmit()" ngNativeValidate *ngIf="project">
+    <form (ngSubmit)="onSubmit()">
         <label>Nom Projet: </label>
-        <input type="text" name="nom_projet" id="nom_projet" [(ngModel)]="project.nom_projet" /><br>
+        <input type="text" name="nom_projet" id="nom_projet" [(ngModel)]="nom_projet" /><br>
         <label>Description: </label>
-        <input type="text" name="description_projet" id="description_projet" [(ngModel)]="project.description_projet" /><br>
+        <input type="text" name="description_projet" id="description_projet" [(ngModel)]="description_projet" /><br>
         <!--<label>Project Picture :</label><input type="file" ngModel name="projectPicture" accept="image/png, image/jpeg" id="projectPicture" (change)="onFileSelected($event)" /><br>-->
         <label>Objectif de recolte: </label>
-        <input type="double precision" id="moneyValue" name="recolte_projet" /><br>
+        <input type="double precision" id="moneyValue" name="objectif_projet" [(ngModel)]="objectif_projet" /><br>
         <label>Odd: </label>
-        <select type="integer" name="odd_projet" id="odd_projet" [(ngModel)]="project.odd_projet">
+        <select type="integer" name="odd_projet" id="odd_projet" [(ngModel)]="odd_projet">
                 <option value="1">1 (Pas de Pauvreté)</option>
                 <option value="2">2 (Zéro Faim)</option>
                 <option value="3">3 (Santé & bien-être)</option>
@@ -30,7 +30,7 @@
             </select><br>
 
         <label>Statut: </label>
-        <select type="integer" name="statut_projet" id="statut_projet" [(ngModel)]="project.statut_projet">
+        <select type="integer" name="statut_projet" id="statut_projet" [(ngModel)]="statut_projet">
                 <option value="1">1: En cours</option>
                 <option value="2">2: Terminé</option>
                 <option value="3">3: Suspendu</option>
@@ -38,7 +38,7 @@
 
         <div class="checkbox-container">
             <label class="container">Besoin de bénévoles:
-                <input type="checkbox" [(ngModel)]="project.benevole_projet">
+                <input type="checkbox" [(ngModel)]="benevole_projet">
                 <div class="checkmark"></div>
             </label>
         </div>
