@@ -1,5 +1,7 @@
 <form (ngSubmit)="onSubmit()">
-    <label>Nom Projet: </label>
+    <label>Ancien Nom Du Projet: (non modifiable)</label>
+    <input type="text" class="old_nom" [(ngModel)]="project.old_nom_projet" name="old_nom_projet" id="old_nom_projet" readonly /><br>
+    <label>Nouveau Nom Du Projet: </label>
     <input type="text" [(ngModel)]="project.nom_projet" name="nom_projet" id="nom_projet" /><br>
     <label>Description: </label>
     <input type="text" [(ngModel)]="project.description_projet" name="description_projet" id="description_projet" /><br>

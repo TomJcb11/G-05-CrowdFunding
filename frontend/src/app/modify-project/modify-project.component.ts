@@ -19,6 +19,7 @@ export class ModifyProjectComponent implements OnInit {
       if (projectName) {
         this.projectService.getOneProject(projectName).subscribe((data: any) => {
           this.project = data[0];
+          this.project.old_nom_projet = this.project.nom_projet;
           console.log(this.project)
         });
       }
@@ -27,6 +28,7 @@ export class ModifyProjectComponent implements OnInit {
   
   onSubmit(): void {
     const data = {
+      old_nom_projet: this.project.old_nom_projet,
       nom_projet : this.project.nom_projet,
       description_projet: this.project.description_projet,
       statut_projet: this.project.statut_projet,
