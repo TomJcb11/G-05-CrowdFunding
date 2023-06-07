@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DonationService } from '../Services/donation.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie'; 
 
 @Component({
   selector: 'app-donation',
@@ -17,7 +18,7 @@ export class DonationComponent implements OnInit {
   message_don: string = '';
   mode_paiement: string = 'Bancontact';
 
-  constructor(private donationService: DonationService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private donationService: DonationService, private cookieService: CookieService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -25,10 +26,37 @@ export class DonationComponent implements OnInit {
       this.loadDonationStats(nom_projet);
     });
   }
+
+  onWatchVideo() {
+    const confirmResult = confirm("Êtes-vous sûr de vouloir regarder une vidéo pour faire un don de 0,10 € ?");
+    if (confirmResult) {
+      const nom_projet = this.route.snapshot.params['nom_projet'];
+      const id_ut = Number(this.cookieService.get('id'));
+
+      const data = {
+        montant_don: 0.10, 
+        message_don: 'Don réalisé en regardant une vidéo',
+        mode_paiement: this.mode_paiement
+      };
+
+      this.donationService.submitDonation(nom_projet, id_ut, data).subscribe(
+        response => {
+          console.log(response);
+          if (response.status === 200) {
+            window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+          } else {
+            this.router.navigate(['/:nom_projet/Donation']);
+          }
+          this.loadDonationStats(nom_projet);
+        },
+        error => console.error(error)
+      );
+    }
+  }
   
   onSubmit() {
     const nom_projet = this.route.snapshot.params['nom_projet'];
-    const id_ut = 3;
+    const id_ut = Number(this.cookieService.get('id'));
 
     // Vérifie si le montant du don est supérieur à 0
     if (this.montant_don <= 0) {

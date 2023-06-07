@@ -50,7 +50,7 @@ form {
         margin-bottom: 20px;
         font-size: 16px;
         box-sizing: border-box;
-        background-color: white;
+        background-color: rgb(175, 175, 175);
         color: $couleur-secondaire;
 
         &:focus {
@@ -74,5 +74,32 @@ form {
         &:hover {
             background-color: darken($couleur-principale, 10%);
         }
+    }
+}
+
+button {
+    display: block;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: #0056b3; // Couleur de fond plus foncée au survol, changez selon votre préférence
+    }
+
+    @media (max-width: 600px) {
+        // Des styles supplémentaires pour les écrans inférieurs à 600px de large
+        font-size: 0.9em;
+        padding: 0.4em 0.9em;
     }
 }
