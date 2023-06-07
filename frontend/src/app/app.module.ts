@@ -28,6 +28,9 @@ import { MyProjectPageComponent } from './my-project-page/my-project-page.compon
 import { ModifyProjectComponent } from './modify-project/modify-project.component';
 import { ModifyProjectPageComponent } from './modify-project-page/modify-project-page.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
+import { CookieModule } from 'ngx-cookie';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
 
 
 const appRoutes: Routes = [
@@ -70,10 +73,16 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatButtonModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    CookieModule.withOptions({
+      sameSite: 'lax'
+    })
   ],
   exports:[RouterModule],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

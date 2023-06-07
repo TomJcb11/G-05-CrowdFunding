@@ -3,8 +3,7 @@ const client = new Client({
     host: 'localhost',
     port: 5432,
     database: 'giverr',
-    password: 'root',
-    user: 'postgres'
+    user: 'alex'
 });
 
 //test connection à la base de données

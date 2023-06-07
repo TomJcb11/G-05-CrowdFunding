@@ -1,13 +1,11 @@
 const { Client } = require('pg');
-
 const client = new Client({
     host: 'localhost',
     port: 5432,
     database: 'giverr',
-    password: 'root',
-    user: 'postgres'
+    user: 'alex'
 });
-
+const jwt = require("jsonwebtoken");
 //test connection à la base de données
 client.connect(console.log('post: connexion réussie'));
 
@@ -59,9 +57,33 @@ const createProject = async(req, res) => {
     }
 };
 
+async function getUsersLogins(req, res) {
+    try {
+        const result = await client.query('SELECT id_utilisateur, addresse_e_mail_utilisateur, mot_de_passe_utilisateur FROM utilisateurs');
+        return result.rows;
+    } catch (err) {
+        console.error(err.message);
+        throw err;
+    }
+};
+
+
+async function login (req, res) {
+    const users = await getUsersLogins(req, res);
+    let userFound = null;
+	for (userFound of users) {
+		if (userFound.addresse_e_mail_utilisateur == req.body.email && userFound.mot_de_passe_utilisateur == req.body.password) {
+			const token = jwt.sign({id: userFound.id_utilisateur}, "hello");
+			return res.status(200).json({token: token, id: userFound.id_utilisateur});
+		}
+	}
+	res.status(401).json({message: "Utilisateur non autorisé"});
+
+};
 
 
 module.exports = {
     submitDonation,
-    createProject
+    createProject,
+    login
 };

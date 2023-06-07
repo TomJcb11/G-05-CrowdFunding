@@ -12,6 +12,7 @@
         "@angular/material": "^16.0.0",
         "cors": "^2.8.5",
         "express": "^4.18.2",
+        "jsonwebtoken": "^9.0.0",
         "pg": "^8.10.0",
         "pg-hstore": "^2.3.4",
         "sequelize": "^6.31.0"

@@ -3,8 +3,7 @@ const client = new Client({
     host: 'localhost',
     port: 5432,
     database: 'giverr',
-    password: 'root',
-    user: 'postgres'
+    user: 'alex'
 });
 
 //test connection à la base de données
@@ -13,7 +12,7 @@ client.connect(console.log('get: connexion réussie'));
 // récupération de tous les utilisateurs
 const getAllUsers = async(req, res) => {
     try {
-        const result = await db.query('SELECT * FROM utilisateurs');
+        const result = await client.query('SELECT * FROM utilisateurs');
         res.status(200).json(result.rows);
     } catch (error) {
         res.status(500).json({ error: 'Database error' });

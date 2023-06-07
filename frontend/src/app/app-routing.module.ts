@@ -12,20 +12,21 @@ import { LoginComponent } from './navbar/dropdown/login/login.component';
 import { DonationComponent } from './donation/donation.component';
 import { ModifyProjectPageComponent } from './modify-project-page/modify-project-page.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
     //{ path: 'createproject', component: CreateProjectComponent, canActivate: [AuthGuard]},
     //{ path: 'login', component: LoginComponent},
-    {path: '',component:AllTheProjectsComponent},
-    {path: 'my-project/modify/:nom_projet', component: ModifyProjectPageComponent},
-    {path: 'my-project', component: MyProjectPageComponent },
-    {path: 'profile', component: ProfileComponent },
-    {path: 'settings', component: SettingsComponent },
-    {path: 'login', component: LoginComponent },
-    {path: 'projects/:nom_projet' , component:OneProjectBasedOnIdComponent},
-    {path: 'odd/:oddName' , component:OddProjetComponent},
-    {path: 'project/:nom_projet/donation' , component:DonationComponent},
-    {path: 'createproject' , component:CreateProjectComponent}
+    {path: '',component:AllTheProjectsComponent, canActivate: [AuthGuard]},
+    {path: 'my-project/modify/:nom_projet', component: ModifyProjectPageComponent, canActivate: [AuthGuard]},
+    {path: 'my-project', component: MyProjectPageComponent, canActivate: [AuthGuard] },
+    {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+    {path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+    {path: 'login', component: LoginComponent},
+    {path: 'projects/:nom_projet' , component:OneProjectBasedOnIdComponent, canActivate: [AuthGuard]},
+    {path: 'odd/:oddName' , component:OddProjetComponent, canActivate: [AuthGuard]},
+    {path: 'project/:nom_projet/donation' , component:DonationComponent, canActivate: [AuthGuard]},
+    {path: 'createproject' , component:CreateProjectComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

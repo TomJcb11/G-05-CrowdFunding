@@ -3,6 +3,6 @@
   <ul *ngIf="showOptions">
     <li><a routerLink="/profile">Profil</a></li>
     <li><a routerLink="/settings">Paramètres</a></li>
-    <li><a routerLink="/login">Déconnecter</a></li>
+    <li><a (click)="logout()">Déconnecter</a></li>
   </ul>
 </div>
