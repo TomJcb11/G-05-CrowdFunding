@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CustomConfirmDialogComponent } from '../custom-confirm-dialog/custom-confirm-dialog.component';
 import { ProjetService } from '../Services/All_projects/all-projects.service';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie';
 
 @Component({
   selector: 'app-my-projects',
@@ -11,9 +12,11 @@ import { Router } from '@angular/router';
 })
 export class MyProjectsComponent implements OnInit {
   projects: any;
-  adminId: number = 1; // Remplacez 1 par l'ID de l'admin que vous souhaitez filtrer
+  adminId: number; // Remplacez 1 par l'ID de l'admin que vous souhaitez filtrer
 
-  constructor(private dialog: MatDialog, private projetService: ProjetService,private router: Router) { }
+  constructor(private dialog: MatDialog, private projetService: ProjetService,private router: Router, private cookieService: CookieService) { 
+    this.adminId = Number(this.cookieService.get('id'));
+  }
 
   ngOnInit() {
     this.projetService.getProjets().subscribe(projects => {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjetService } from '../Services/All_projects/all-projects.service';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie';
 
 @Component({
   selector: 'app-create-project',
@@ -20,7 +21,7 @@ export class CreateProjectComponent implements OnInit {
   benevole_projet = false; 
   
 
-  constructor(private projetService: ProjetService, private router: Router) { }
+  constructor(private projetService: ProjetService, private router: Router, private cookieService: CookieService) { }
 
   ngOnInit(): void {
   }
@@ -34,7 +35,8 @@ export class CreateProjectComponent implements OnInit {
       objectif_projet: this.objectif_projet,
       recolte_projet: this.recolte_projet,
       odd_projet: this.odd_projet,
-      benevole_projet: this.benevole_projet
+      benevole_projet: this.benevole_projet,
+      admin_projet: this.cookieService.get('id')
     };
 
     if (data.objectif_projet <= 0) {

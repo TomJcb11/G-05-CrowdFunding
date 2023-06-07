@@ -3,7 +3,8 @@ const client = new Client({
     host: 'localhost',
     port: 5432,
     database: 'giverr',
-    user: 'alex'
+    user: 'postgres',
+    password: 'root'
 });
 
 //test connection à la base de données
@@ -13,8 +14,8 @@ const deleteOneProject = (req, res) => {
     const id = parseInt(req.params.id);
 
     client.query('DELETE FROM investisseurs WHERE id_projet = $1', [id], (err, result) => {
-        if (err) { 
-        console.log(err);
+        if (err) {
+            console.log(err);
         }
         client.query('DELETE FROM projets WHERE id_projet = $1', [id], (err, result) => {
             if (err) {

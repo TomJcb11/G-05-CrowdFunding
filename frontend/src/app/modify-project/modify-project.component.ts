@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProjetService } from '../Services/All_projects/all-projects.service';
 import { ChangeDetectorRef } from '@angular/core';
+import { CookieService } from 'ngx-cookie';
 
 @Component({
   selector: 'app-modify-project',
@@ -11,7 +12,7 @@ import { ChangeDetectorRef } from '@angular/core';
 export class ModifyProjectComponent implements OnInit {
   project: any = {};
 
-  constructor(private route: ActivatedRoute, private projectService: ProjetService, private router: Router, private changeDetectorRef: ChangeDetectorRef) {}
+  constructor(private route: ActivatedRoute, private projectService: ProjetService, private router: Router, private changeDetectorRef: ChangeDetectorRef,private cookieService: CookieService) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -34,6 +35,7 @@ export class ModifyProjectComponent implements OnInit {
       statut_projet: this.project.statut_projet,
       objectif_projet: this.project.objectif_projet,
       odd_projet: this.project.id_odd,
+      admin_projet: this.cookieService.get('id')
     };
 
     if (data.objectif_projet <= 0) {

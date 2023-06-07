@@ -3,7 +3,8 @@ const client = new Client({
     host: 'localhost',
     port: 5432,
     database: 'giverr',
-    user: 'alex'
+    user: 'postgres',
+    password: 'root'
 });
 const jwt = require("jsonwebtoken");
 //test connection à la base de données
@@ -39,7 +40,7 @@ const createProject = async(req, res) => {
     const recolte_projet = req.body.recolte_projet;
     const odd_projet = req.body.odd_projet;
     const statut_projet = req.body.statut_projet;
-    const admin_projet = 1; // ID de l'administrateur par défaut
+    const admin_projet = req.body.admin_projet; // ID de l'administrateur par défaut
 
     // Vérifiez que nom_projet existe et n'est pas vide
     if (!nom_projet) {
@@ -68,16 +69,16 @@ async function getUsersLogins(req, res) {
 };
 
 
-async function login (req, res) {
+async function login(req, res) {
     const users = await getUsersLogins(req, res);
     let userFound = null;
-	for (userFound of users) {
-		if (userFound.addresse_e_mail_utilisateur == req.body.email && userFound.mot_de_passe_utilisateur == req.body.password) {
-			const token = jwt.sign({id: userFound.id_utilisateur}, "hello");
-			return res.status(200).json({token: token, id: userFound.id_utilisateur});
-		}
-	}
-	res.status(401).json({message: "Utilisateur non autorisé"});
+    for (userFound of users) {
+        if (userFound.addresse_e_mail_utilisateur == req.body.email && userFound.mot_de_passe_utilisateur == req.body.password) {
+            const token = jwt.sign({ id: userFound.id_utilisateur }, "hello");
+            return res.status(200).json({ token: token, id: userFound.id_utilisateur });
+        }
+    }
+    res.status(401).json({ message: "Utilisateur non autorisé" });
 
 };
 

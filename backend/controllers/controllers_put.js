@@ -3,7 +3,8 @@ const client = new Client({
     host: 'localhost',
     port: 5432,
     database: 'giverr',
-    user: 'alex'
+    user: 'postgres',
+    password: 'root'
 });
 
 //test connection à la base de données
@@ -15,7 +16,7 @@ const updateOneProject = async(req, res) => {
     const objectif_projet = req.body.objectif_projet;
     const odd_projet = req.body.odd_projet;
     const statut_projet = req.body.statut_projet;
-    const admin_projet = 1; // ID de l'administrateur par défaut   
+    const admin_projet = req.body.admin_projet; // ID de l'administrateur par défaut   
 
     const result = await client.query('SELECT recolte_projet FROM projets WHERE nom_projet = $1', [old_nom_projet]);
     const recolte_projet = result.rows[0].recolte_projet;
